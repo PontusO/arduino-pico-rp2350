@@ -47,10 +47,10 @@ iLabsConnectivityClass::iLabsConnectivityClass(HardwareSerial* espSerial, Hardwa
     espSerialPortConfigured = false;
 }
 
-// Do a HW reset by applying a low pulse to the reset line for 1mSec
+// Power the SARA modem on
 bool iLabsConnectivityClass::doModemPowerOn() {
     bool ret;
-    digitalWrite(PIN_SARA_PWR, HIGH);         // Make sure LDO is on
+    digitalWrite(PIN_SARA_PWR, HIGH);         // Make sure the power supply is enabled
     delay(100);                               // let the power stabilize
     pinMode(PIN_SARA_ON, OUTPUT);             // Pull power on control low
     delay(150);                               // For 150mS
@@ -72,6 +72,22 @@ bool iLabsConnectivityClass::doModemPowerOn() {
     return ret;
 }
 
+// Power the SARA modem off
+bool iLabsConnectivityClass::doModemPowerOff(bool disablePower)
+{
+    SARA_SERIAL_PORT.println(F("AT+CPWROFF"));
+    if (!getModemResponse().endsWith("OK")) {
+        return false;
+    }
+
+    if (disablePower) {
+        /* First ensure that SARA is powered down */
+        delay(2500);
+        digitalWrite(PIN_SARA_PWR, LOW);
+    }
+    return true;
+}
+
 // Checks to see if the modem responds to the "AT" poll command.
 bool iLabsConnectivityClass::isModemAlive(uint32_t timeout) {
     SARA_SERIAL_PORT.setTimeout(100);
@@ -80,7 +96,6 @@ bool iLabsConnectivityClass::isModemAlive(uint32_t timeout) {
     while (!rdy.startsWith(F("OK")) && --timeout) {
         SARA_SERIAL_PORT.println(F("AT"));
         rdy = SARA_SERIAL_PORT.readStringUntil('\n');
-        //Serial.println(rdy);
     }
     SARA_SERIAL_PORT.setTimeout(1000);      // Restore serial timeout
     if (timeout) {

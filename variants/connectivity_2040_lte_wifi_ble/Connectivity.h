@@ -28,6 +28,7 @@ public:
 
     // Modem stuff
     bool doModemPowerOn();
+    bool doModemPowerOff(bool disablePower = false);
     bool isModemAlive(uint32_t timeout = 50);
     int getModemMNOProfile();
     bool setModemMNOProfile(int profile);
