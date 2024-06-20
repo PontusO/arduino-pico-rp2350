@@ -3,5 +3,7 @@ system
 tools/dist
 docs/_build
 ota/build
-tools/libpico/build
+tools/libpico-rp2350/build
+tools/libpico-rp2040/build
 platform.local.txt
+tools/__pycache__
