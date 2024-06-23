@@ -47,4 +47,4 @@ for type in boot2_generic_03h boot2_w25q080; do
                    -s 0xffffffff $type.$div.bin ${type}_${div}_padded_checksum.S
     done
 done
-mv *.S ../../../../boot2/.
+mv *.S ../../../../boot2/rp2350/.
