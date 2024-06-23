@@ -21,12 +21,12 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include <Arduino.h>
 #include <hardware/dma.h>
 #include <hardware/gpio.h>
 #include <hardware/i2c.h>
 #include <hardware/irq.h>
 #include <hardware/regs/intctrl.h>
+#include <Arduino.h>
 #include "Wire.h"
 
 #ifdef USE_TINYUSB

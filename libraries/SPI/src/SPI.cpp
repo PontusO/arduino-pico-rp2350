@@ -18,12 +18,12 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include "SPI.h"
 #include <hardware/dma.h>
 #include <hardware/spi.h>
 #include <hardware/gpio.h>
 #include <hardware/structs/iobank0.h>
 #include <hardware/irq.h>
+#include "SPI.h"
 
 #ifdef USE_TINYUSB
 // For Serial when selecting TinyUSB.  Can't include in the core because Arduino IDE

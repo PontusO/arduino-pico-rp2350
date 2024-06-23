@@ -40,6 +40,7 @@ target_compile_options(common INTERFACE
     $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
 )
 
+include_directories(BEFORE ./)
 include_directories(BEFORE ${PICO_SDK_PATH}/../tools/libpico)
 
 add_library(pico STATIC)
@@ -205,6 +206,6 @@ foreach(tgt pico picow-noipv6-nobtc-noble picow-ipv6-nobtc-noble picow-noipv6-bt
     add_custom_command(TARGET ${tgt} POST_BUILD
         COMMAND ar d lib${tgt}.a stdio.c.obj stdio_uart.c.obj stdio_usb.c.obj stdio_usb_descriptors.c.obj pico_malloc.c.obj
         COMMAND ar d lib${tgt}.a btstack_flash_bank.c.obj  # Need to override with our own implementation
-        COMMAND cp lib${tgt}.a ../../../lib/.
+        COMMAND cp lib${tgt}.a ../../../lib/rp2040/.
     )
 endforeach()

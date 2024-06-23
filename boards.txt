@@ -59,6 +59,7 @@ rpipico.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 rpipico.build.board=RASPBERRY_PI_PICO
 rpipico.build.mcu=cortex-m0plus
 rpipico.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+rpipico.build.pico-sdk-switch=PICO_RP2040
 rpipico.build.variant=rpipico
 rpipico.upload.maximum_size=2097152
 rpipico.upload.wait_for_upload_port=true
@@ -268,6 +269,7 @@ rpipicow.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 rpipicow.build.board=RASPBERRY_PI_PICO_W
 rpipicow.build.mcu=cortex-m0plus
 rpipicow.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+rpipicow.build.pico-sdk-switch=PICO_RP2040
 rpipicow.build.variant=rpipicow
 rpipicow.upload.maximum_size=2097152
 rpipicow.upload.wait_for_upload_port=true
@@ -577,6 +579,7 @@ rpipicow.menu.uploadmethod.picodebug.upload.tool.default=picodebug
 0xcb_helios.build.board=0XCB_HELIOS
 0xcb_helios.build.mcu=cortex-m0plus
 0xcb_helios.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+0xcb_helios.build.pico-sdk-switch=PICO_RP2040
 0xcb_helios.build.variant=0xcb_helios
 0xcb_helios.upload.maximum_size=16777216
 0xcb_helios.upload.wait_for_upload_port=true
@@ -892,6 +895,7 @@ adafruit_feather.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 adafruit_feather.build.board=ADAFRUIT_FEATHER_RP2040
 adafruit_feather.build.mcu=cortex-m0plus
 adafruit_feather.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+adafruit_feather.build.pico-sdk-switch=PICO_RP2040
 adafruit_feather.build.variant=adafruit_feather
 adafruit_feather.upload.maximum_size=8388608
 adafruit_feather.upload.wait_for_upload_port=true
@@ -1143,6 +1147,7 @@ adafruit_feather_scorpio.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 adafruit_feather_scorpio.build.board=ADAFRUIT_FEATHER_RP2040_SCORPIO
 adafruit_feather_scorpio.build.mcu=cortex-m0plus
 adafruit_feather_scorpio.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+adafruit_feather_scorpio.build.pico-sdk-switch=PICO_RP2040
 adafruit_feather_scorpio.build.variant=adafruit_feather_scorpio
 adafruit_feather_scorpio.upload.maximum_size=8388608
 adafruit_feather_scorpio.upload.wait_for_upload_port=true
@@ -1398,6 +1403,7 @@ adafruit_feather_dvi.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 adafruit_feather_dvi.build.board=ADAFRUIT_FEATHER_RP2040_DVI
 adafruit_feather_dvi.build.mcu=cortex-m0plus
 adafruit_feather_dvi.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+adafruit_feather_dvi.build.pico-sdk-switch=PICO_RP2040
 adafruit_feather_dvi.build.variant=adafruit_feather_dvi
 adafruit_feather_dvi.upload.maximum_size=8388608
 adafruit_feather_dvi.upload.wait_for_upload_port=true
@@ -1653,6 +1659,7 @@ adafruit_feather_rfm.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 adafruit_feather_rfm.build.board=ADAFRUIT_FEATHER_RP2040_RFM
 adafruit_feather_rfm.build.mcu=cortex-m0plus
 adafruit_feather_rfm.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+adafruit_feather_rfm.build.pico-sdk-switch=PICO_RP2040
 adafruit_feather_rfm.build.variant=adafruit_feather_rfm
 adafruit_feather_rfm.upload.maximum_size=8388608
 adafruit_feather_rfm.upload.wait_for_upload_port=true
@@ -1908,6 +1915,7 @@ adafruit_feather_thinkink.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 adafruit_feather_thinkink.build.board=ADAFRUIT_FEATHER_RP2040_THINKINK
 adafruit_feather_thinkink.build.mcu=cortex-m0plus
 adafruit_feather_thinkink.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+adafruit_feather_thinkink.build.pico-sdk-switch=PICO_RP2040
 adafruit_feather_thinkink.build.variant=adafruit_feather_thinkink
 adafruit_feather_thinkink.upload.maximum_size=8388608
 adafruit_feather_thinkink.upload.wait_for_upload_port=true
@@ -2163,6 +2171,7 @@ adafruit_feather_usb_host.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 adafruit_feather_usb_host.build.board=ADAFRUIT_FEATHER_RP2040_USB_HOST
 adafruit_feather_usb_host.build.mcu=cortex-m0plus
 adafruit_feather_usb_host.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+adafruit_feather_usb_host.build.pico-sdk-switch=PICO_RP2040
 adafruit_feather_usb_host.build.variant=adafruit_feather_usb_host
 adafruit_feather_usb_host.upload.maximum_size=8388608
 adafruit_feather_usb_host.upload.wait_for_upload_port=true
@@ -2418,6 +2427,7 @@ adafruit_feather_can.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 adafruit_feather_can.build.board=ADAFRUIT_FEATHER_RP2040_CAN
 adafruit_feather_can.build.mcu=cortex-m0plus
 adafruit_feather_can.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+adafruit_feather_can.build.pico-sdk-switch=PICO_RP2040
 adafruit_feather_can.build.variant=adafruit_feather_can
 adafruit_feather_can.upload.maximum_size=8388608
 adafruit_feather_can.upload.wait_for_upload_port=true
@@ -2673,6 +2683,7 @@ adafruit_feather_prop_maker.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 adafruit_feather_prop_maker.build.board=ADAFRUIT_FEATHER_RP2040_PROP_MAKER
 adafruit_feather_prop_maker.build.mcu=cortex-m0plus
 adafruit_feather_prop_maker.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+adafruit_feather_prop_maker.build.pico-sdk-switch=PICO_RP2040
 adafruit_feather_prop_maker.build.variant=adafruit_feather_prop_maker
 adafruit_feather_prop_maker.upload.maximum_size=8388608
 adafruit_feather_prop_maker.upload.wait_for_upload_port=true
@@ -2936,6 +2947,7 @@ adafruit_itsybitsy.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 adafruit_itsybitsy.build.board=ADAFRUIT_ITSYBITSY_RP2040
 adafruit_itsybitsy.build.mcu=cortex-m0plus
 adafruit_itsybitsy.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+adafruit_itsybitsy.build.pico-sdk-switch=PICO_RP2040
 adafruit_itsybitsy.build.variant=adafruit_itsybitsy
 adafruit_itsybitsy.upload.maximum_size=8388608
 adafruit_itsybitsy.upload.wait_for_upload_port=true
@@ -3191,6 +3203,7 @@ adafruit_metro.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 adafruit_metro.build.board=ADAFRUIT_METRO_RP2040
 adafruit_metro.build.mcu=cortex-m0plus
 adafruit_metro.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+adafruit_metro.build.pico-sdk-switch=PICO_RP2040
 adafruit_metro.build.variant=adafruit_metro
 adafruit_metro.upload.maximum_size=16777216
 adafruit_metro.upload.wait_for_upload_port=true
@@ -3510,6 +3523,7 @@ adafruit_qtpy.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 adafruit_qtpy.build.board=ADAFRUIT_QTPY_RP2040
 adafruit_qtpy.build.mcu=cortex-m0plus
 adafruit_qtpy.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+adafruit_qtpy.build.pico-sdk-switch=PICO_RP2040
 adafruit_qtpy.build.variant=adafruit_qtpy
 adafruit_qtpy.upload.maximum_size=8388608
 adafruit_qtpy.upload.wait_for_upload_port=true
@@ -3773,6 +3787,7 @@ adafruit_stemmafriend.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 adafruit_stemmafriend.build.board=ADAFRUIT_STEMMAFRIEND_RP2040
 adafruit_stemmafriend.build.mcu=cortex-m0plus
 adafruit_stemmafriend.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+adafruit_stemmafriend.build.pico-sdk-switch=PICO_RP2040
 adafruit_stemmafriend.build.variant=adafruit_stemmafriend
 adafruit_stemmafriend.upload.maximum_size=8388608
 adafruit_stemmafriend.upload.wait_for_upload_port=true
@@ -4028,6 +4043,7 @@ adafruit_trinkeyrp2040qt.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 adafruit_trinkeyrp2040qt.build.board=ADAFRUIT_TRINKEYQT_RP2040
 adafruit_trinkeyrp2040qt.build.mcu=cortex-m0plus
 adafruit_trinkeyrp2040qt.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+adafruit_trinkeyrp2040qt.build.pico-sdk-switch=PICO_RP2040
 adafruit_trinkeyrp2040qt.build.variant=adafruit_trinkeyrp2040qt
 adafruit_trinkeyrp2040qt.upload.maximum_size=8388608
 adafruit_trinkeyrp2040qt.upload.wait_for_upload_port=true
@@ -4283,6 +4299,7 @@ adafruit_macropad2040.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 adafruit_macropad2040.build.board=ADAFRUIT_MACROPAD_RP2040
 adafruit_macropad2040.build.mcu=cortex-m0plus
 adafruit_macropad2040.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+adafruit_macropad2040.build.pico-sdk-switch=PICO_RP2040
 adafruit_macropad2040.build.variant=adafruit_macropad2040
 adafruit_macropad2040.upload.maximum_size=8388608
 adafruit_macropad2040.upload.wait_for_upload_port=true
@@ -4538,6 +4555,7 @@ adafruit_kb2040.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 adafruit_kb2040.build.board=ADAFRUIT_KB2040_RP2040
 adafruit_kb2040.build.mcu=cortex-m0plus
 adafruit_kb2040.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+adafruit_kb2040.build.pico-sdk-switch=PICO_RP2040
 adafruit_kb2040.build.variant=adafruit_kb2040
 adafruit_kb2040.upload.maximum_size=8388608
 adafruit_kb2040.upload.wait_for_upload_port=true
@@ -4801,6 +4819,7 @@ arduino_nano_connect.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 arduino_nano_connect.build.board=NANO_RP2040_CONNECT
 arduino_nano_connect.build.mcu=cortex-m0plus
 arduino_nano_connect.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+arduino_nano_connect.build.pico-sdk-switch=PICO_RP2040
 arduino_nano_connect.build.variant=arduino_nano_connect
 arduino_nano_connect.upload.maximum_size=16777216
 arduino_nano_connect.upload.wait_for_upload_port=true
@@ -5132,6 +5151,7 @@ artronshop_rp2_nano.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 artronshop_rp2_nano.build.board=ARTRONSHOP_RP2_NANO
 artronshop_rp2_nano.build.mcu=cortex-m0plus
 artronshop_rp2_nano.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+artronshop_rp2_nano.build.pico-sdk-switch=PICO_RP2040
 artronshop_rp2_nano.build.variant=artronshop_rp2_nano
 artronshop_rp2_nano.upload.maximum_size=2097152
 artronshop_rp2_nano.upload.wait_for_upload_port=true
@@ -5365,6 +5385,7 @@ breadstick_raspberry.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 breadstick_raspberry.build.board=Breadstick_Raspberry
 breadstick_raspberry.build.mcu=cortex-m0plus
 breadstick_raspberry.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+breadstick_raspberry.build.pico-sdk-switch=PICO_RP2040
 breadstick_raspberry.build.variant=breadstick_raspberry
 breadstick_raspberry.upload.maximum_size=16777216
 breadstick_raspberry.upload.wait_for_upload_port=true
@@ -5696,6 +5717,7 @@ bridgetek_idm2040-7a.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 bridgetek_idm2040-7a.build.board=BRIDGETEK_IDM2040-7A
 bridgetek_idm2040-7a.build.mcu=cortex-m0plus
 bridgetek_idm2040-7a.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+bridgetek_idm2040-7a.build.pico-sdk-switch=PICO_RP2040
 bridgetek_idm2040-7a.build.variant=bridgetek_idm2040-7a
 bridgetek_idm2040-7a.upload.maximum_size=8388608
 bridgetek_idm2040-7a.upload.wait_for_upload_port=true
@@ -5972,6 +5994,7 @@ cytron_maker_nano_rp2040.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 cytron_maker_nano_rp2040.build.board=CYTRON_MAKER_NANO_RP2040
 cytron_maker_nano_rp2040.build.mcu=cortex-m0plus
 cytron_maker_nano_rp2040.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+cytron_maker_nano_rp2040.build.pico-sdk-switch=PICO_RP2040
 cytron_maker_nano_rp2040.build.variant=cytron_maker_nano_rp2040
 cytron_maker_nano_rp2040.upload.maximum_size=2097152
 cytron_maker_nano_rp2040.upload.wait_for_upload_port=true
@@ -6205,6 +6228,7 @@ cytron_maker_pi_rp2040.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 cytron_maker_pi_rp2040.build.board=CYTRON_MAKER_PI_RP2040
 cytron_maker_pi_rp2040.build.mcu=cortex-m0plus
 cytron_maker_pi_rp2040.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+cytron_maker_pi_rp2040.build.pico-sdk-switch=PICO_RP2040
 cytron_maker_pi_rp2040.build.variant=cytron_maker_pi_rp2040
 cytron_maker_pi_rp2040.upload.maximum_size=2097152
 cytron_maker_pi_rp2040.upload.wait_for_upload_port=true
@@ -6438,6 +6462,7 @@ cytron_maker_uno_rp2040.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 cytron_maker_uno_rp2040.build.board=CYTRON_MAKER_UNO_RP2040
 cytron_maker_uno_rp2040.build.mcu=cortex-m0plus
 cytron_maker_uno_rp2040.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+cytron_maker_uno_rp2040.build.pico-sdk-switch=PICO_RP2040
 cytron_maker_uno_rp2040.build.variant=cytron_maker_uno_rp2040
 cytron_maker_uno_rp2040.upload.maximum_size=2097152
 cytron_maker_uno_rp2040.upload.wait_for_upload_port=true
@@ -6671,6 +6696,7 @@ datanoisetv_picoadk.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 datanoisetv_picoadk.build.board=DATANOISETV_PICOADK
 datanoisetv_picoadk.build.mcu=cortex-m0plus
 datanoisetv_picoadk.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+datanoisetv_picoadk.build.pico-sdk-switch=PICO_RP2040
 datanoisetv_picoadk.build.variant=datanoisetv_picoadk
 datanoisetv_picoadk.upload.maximum_size=2097152
 datanoisetv_picoadk.upload.wait_for_upload_port=true
@@ -6880,6 +6906,7 @@ degz_suibo.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 degz_suibo.build.board=DEGZ_SUIBO_RP2040
 degz_suibo.build.mcu=cortex-m0plus
 degz_suibo.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+degz_suibo.build.pico-sdk-switch=PICO_RP2040
 degz_suibo.build.variant=degz_suibo
 degz_suibo.upload.maximum_size=16777216
 degz_suibo.upload.wait_for_upload_port=true
@@ -7211,6 +7238,7 @@ flyboard2040_core.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 flyboard2040_core.build.board=FLYBOARD2040_CORE
 flyboard2040_core.build.mcu=cortex-m0plus
 flyboard2040_core.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+flyboard2040_core.build.pico-sdk-switch=PICO_RP2040
 flyboard2040_core.build.variant=flyboard2040_core
 flyboard2040_core.upload.maximum_size=4194304
 flyboard2040_core.upload.wait_for_upload_port=true
@@ -7442,6 +7470,7 @@ dfrobot_beetle_rp2040.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 dfrobot_beetle_rp2040.build.board=DFROBOT_BEETLE_RP2040
 dfrobot_beetle_rp2040.build.mcu=cortex-m0plus
 dfrobot_beetle_rp2040.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+dfrobot_beetle_rp2040.build.pico-sdk-switch=PICO_RP2040
 dfrobot_beetle_rp2040.build.variant=dfrobot_beetle_rp2040
 dfrobot_beetle_rp2040.upload.maximum_size=2097152
 dfrobot_beetle_rp2040.upload.wait_for_upload_port=true
@@ -7675,6 +7704,7 @@ DudesCab.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 DudesCab.build.board=RASPBERRY_PI_PICO
 DudesCab.build.mcu=cortex-m0plus
 DudesCab.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+DudesCab.build.pico-sdk-switch=PICO_RP2040
 DudesCab.build.variant=DudesCab
 DudesCab.upload.maximum_size=4194304
 DudesCab.upload.wait_for_upload_port=true
@@ -7922,6 +7952,7 @@ electroniccats_huntercat_nfc.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 electroniccats_huntercat_nfc.build.board=ELECTRONICCATS_HUNTERCAT_NFC
 electroniccats_huntercat_nfc.build.mcu=cortex-m0plus
 electroniccats_huntercat_nfc.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+electroniccats_huntercat_nfc.build.pico-sdk-switch=PICO_RP2040
 electroniccats_huntercat_nfc.build.variant=electroniccats_huntercat_nfc
 electroniccats_huntercat_nfc.upload.maximum_size=2097152
 electroniccats_huntercat_nfc.upload.wait_for_upload_port=true
@@ -8131,6 +8162,7 @@ extelec_rc2040.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 extelec_rc2040.build.board=EXTREMEELEXTRONICS_RC2040
 extelec_rc2040.build.mcu=cortex-m0plus
 extelec_rc2040.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+extelec_rc2040.build.pico-sdk-switch=PICO_RP2040
 extelec_rc2040.build.variant=extelec_rc2040
 extelec_rc2040.upload.maximum_size=2097152
 extelec_rc2040.upload.wait_for_upload_port=true
@@ -8364,6 +8396,7 @@ groundstudio_marble_pico.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 groundstudio_marble_pico.build.board=MARBLE_PICO
 groundstudio_marble_pico.build.mcu=cortex-m0plus
 groundstudio_marble_pico.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+groundstudio_marble_pico.build.pico-sdk-switch=PICO_RP2040
 groundstudio_marble_pico.build.variant=groundstudio_marble_pico
 groundstudio_marble_pico.upload.maximum_size=8388608
 groundstudio_marble_pico.upload.wait_for_upload_port=true
@@ -8639,6 +8672,7 @@ challenger_2040_lte.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 challenger_2040_lte.build.board=CHALLENGER_2040_LTE_RP2040
 challenger_2040_lte.build.mcu=cortex-m0plus
 challenger_2040_lte.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+challenger_2040_lte.build.pico-sdk-switch=PICO_RP2040
 challenger_2040_lte.build.variant=challenger_2040_lte
 challenger_2040_lte.upload.maximum_size=8388608
 challenger_2040_lte.upload.wait_for_upload_port=true
@@ -8914,6 +8948,7 @@ challenger_2040_lora.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 challenger_2040_lora.build.board=CHALLENGER_2040_LORA_RP2040
 challenger_2040_lora.build.mcu=cortex-m0plus
 challenger_2040_lora.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+challenger_2040_lora.build.pico-sdk-switch=PICO_RP2040
 challenger_2040_lora.build.variant=challenger_2040_lora
 challenger_2040_lora.upload.maximum_size=8388608
 challenger_2040_lora.upload.wait_for_upload_port=true
@@ -9189,6 +9224,7 @@ challenger_2040_subghz.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 challenger_2040_subghz.build.board=CHALLENGER_2040_SUBGHZ_RP2040
 challenger_2040_subghz.build.mcu=cortex-m0plus
 challenger_2040_subghz.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+challenger_2040_subghz.build.pico-sdk-switch=PICO_RP2040
 challenger_2040_subghz.build.variant=challenger_2040_subghz
 challenger_2040_subghz.upload.maximum_size=8388608
 challenger_2040_subghz.upload.wait_for_upload_port=true
@@ -9464,6 +9500,7 @@ challenger_2040_wifi.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 challenger_2040_wifi.build.board=CHALLENGER_2040_WIFI_RP2040
 challenger_2040_wifi.build.mcu=cortex-m0plus
 challenger_2040_wifi.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+challenger_2040_wifi.build.pico-sdk-switch=PICO_RP2040
 challenger_2040_wifi.build.variant=challenger_2040_wifi
 challenger_2040_wifi.upload.maximum_size=8388608
 challenger_2040_wifi.upload.wait_for_upload_port=true
@@ -9740,6 +9777,7 @@ challenger_2040_wifi_ble.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 challenger_2040_wifi_ble.build.board=CHALLENGER_2040_WIFI_BLE_RP2040
 challenger_2040_wifi_ble.build.mcu=cortex-m0plus
 challenger_2040_wifi_ble.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+challenger_2040_wifi_ble.build.pico-sdk-switch=PICO_RP2040
 challenger_2040_wifi_ble.build.variant=challenger_2040_wifi_ble
 challenger_2040_wifi_ble.upload.maximum_size=8388608
 challenger_2040_wifi_ble.upload.wait_for_upload_port=true
@@ -10016,6 +10054,7 @@ challenger_2040_wifi6_ble.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 challenger_2040_wifi6_ble.build.board=CHALLENGER_2040_WIFI6_BLE_RP2040
 challenger_2040_wifi6_ble.build.mcu=cortex-m0plus
 challenger_2040_wifi6_ble.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+challenger_2040_wifi6_ble.build.pico-sdk-switch=PICO_RP2040
 challenger_2040_wifi6_ble.build.variant=challenger_2040_wifi6_ble
 challenger_2040_wifi6_ble.upload.maximum_size=8388608
 challenger_2040_wifi6_ble.upload.wait_for_upload_port=true
@@ -10292,6 +10331,7 @@ challenger_nb_2040_wifi.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 challenger_nb_2040_wifi.build.board=CHALLENGER_NB_2040_WIFI_RP2040
 challenger_nb_2040_wifi.build.mcu=cortex-m0plus
 challenger_nb_2040_wifi.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+challenger_nb_2040_wifi.build.pico-sdk-switch=PICO_RP2040
 challenger_nb_2040_wifi.build.variant=challenger_nb_2040_wifi
 challenger_nb_2040_wifi.upload.maximum_size=8388608
 challenger_nb_2040_wifi.upload.wait_for_upload_port=true
@@ -10568,6 +10608,7 @@ challenger_2040_sdrtc.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 challenger_2040_sdrtc.build.board=CHALLENGER_2040_SDRTC_RP2040
 challenger_2040_sdrtc.build.mcu=cortex-m0plus
 challenger_2040_sdrtc.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+challenger_2040_sdrtc.build.pico-sdk-switch=PICO_RP2040
 challenger_2040_sdrtc.build.variant=challenger_2040_sdrtc
 challenger_2040_sdrtc.upload.maximum_size=8388608
 challenger_2040_sdrtc.upload.wait_for_upload_port=true
@@ -10843,6 +10884,7 @@ challenger_2040_nfc.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 challenger_2040_nfc.build.board=CHALLENGER_2040_NFC_RP2040
 challenger_2040_nfc.build.mcu=cortex-m0plus
 challenger_2040_nfc.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+challenger_2040_nfc.build.pico-sdk-switch=PICO_RP2040
 challenger_2040_nfc.build.variant=challenger_2040_nfc
 challenger_2040_nfc.upload.maximum_size=8388608
 challenger_2040_nfc.upload.wait_for_upload_port=true
@@ -11118,6 +11160,7 @@ challenger_2040_uwb.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 challenger_2040_uwb.build.board=CHALLENGER_2040_UWB_RP2040
 challenger_2040_uwb.build.mcu=cortex-m0plus
 challenger_2040_uwb.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+challenger_2040_uwb.build.pico-sdk-switch=PICO_RP2040
 challenger_2040_uwb.build.variant=challenger_2040_uwb
 challenger_2040_uwb.upload.maximum_size=8388608
 challenger_2040_uwb.upload.wait_for_upload_port=true
@@ -11393,6 +11436,7 @@ connectivity_2040_lte_wifi_ble.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 connectivity_2040_lte_wifi_ble.build.board=CONNECTIVITY_2040_LTE_WIFI_BLE_RP2040
 connectivity_2040_lte_wifi_ble.build.mcu=cortex-m0plus
 connectivity_2040_lte_wifi_ble.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+connectivity_2040_lte_wifi_ble.build.pico-sdk-switch=PICO_RP2040
 connectivity_2040_lte_wifi_ble.build.variant=connectivity_2040_lte_wifi_ble
 connectivity_2040_lte_wifi_ble.upload.maximum_size=8388608
 connectivity_2040_lte_wifi_ble.upload.wait_for_upload_port=true
@@ -11669,6 +11713,7 @@ ilabs_rpico32.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 ilabs_rpico32.build.board=ILABS_2040_RPICO32_RP2040
 ilabs_rpico32.build.mcu=cortex-m0plus
 ilabs_rpico32.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+ilabs_rpico32.build.pico-sdk-switch=PICO_RP2040
 ilabs_rpico32.build.variant=ilabs_rpico32
 ilabs_rpico32.upload.maximum_size=8388608
 ilabs_rpico32.upload.wait_for_upload_port=true
@@ -11945,6 +11990,7 @@ challenger_2350_wifi_ble.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 challenger_2350_wifi_ble.build.board=CHALLENGER_2350_WIFI_BLE_RP2350
 challenger_2350_wifi_ble.build.mcu=cortex-m33
 challenger_2350_wifi_ble.build.architecture=-mcpu=cortex-m33 -mthumb -march=armv8-m.main+fp+dsp -mfloat-abi=softfp
+challenger_2350_wifi_ble.build.pico-sdk-switch=PICO_RP2350
 challenger_2350_wifi_ble.build.variant=challenger_2350_wifi_ble
 challenger_2350_wifi_ble.upload.maximum_size=8388608
 challenger_2350_wifi_ble.upload.wait_for_upload_port=true
@@ -11958,7 +12004,7 @@ challenger_2350_wifi_ble.build.ldscript=memmap_default.ld
 challenger_2350_wifi_ble.build.boot2=boot2_w25q080_2_padded_checksum
 challenger_2350_wifi_ble.build.usb_manufacturer="iLabs"
 challenger_2350_wifi_ble.build.usb_product="Challenger 2350 WiFi/BLE"
-challenger_2350_wifi_ble.build.extra_flags=-DWIFIESPAT2 -DPICO_RP2350
+challenger_2350_wifi_ble.build.extra_flags=-DWIFIESPAT2
 challenger_2350_wifi_ble.menu.flash.8388608_0=8MB (no FS)
 challenger_2350_wifi_ble.menu.flash.8388608_0.upload.maximum_size=8384512
 challenger_2350_wifi_ble.menu.flash.8388608_0.build.flash_total=8388608
@@ -12221,6 +12267,7 @@ melopero_cookie_rp2040.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 melopero_cookie_rp2040.build.board=MELOPERO_COOKIE_RP2040
 melopero_cookie_rp2040.build.mcu=cortex-m0plus
 melopero_cookie_rp2040.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+melopero_cookie_rp2040.build.pico-sdk-switch=PICO_RP2040
 melopero_cookie_rp2040.build.variant=melopero_cookie_rp2040
 melopero_cookie_rp2040.upload.maximum_size=8388608
 melopero_cookie_rp2040.upload.wait_for_upload_port=true
@@ -12496,6 +12543,7 @@ melopero_shake_rp2040.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 melopero_shake_rp2040.build.board=MELOPERO_SHAKE_RP2040
 melopero_shake_rp2040.build.mcu=cortex-m0plus
 melopero_shake_rp2040.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+melopero_shake_rp2040.build.pico-sdk-switch=PICO_RP2040
 melopero_shake_rp2040.build.variant=melopero_shake_rp2040
 melopero_shake_rp2040.upload.maximum_size=16777216
 melopero_shake_rp2040.upload.wait_for_upload_port=true
@@ -12827,6 +12875,7 @@ nekosystems_bl2040_mini.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 nekosystems_bl2040_mini.build.board=NEKOSYSTEMS_BL2040_MINI
 nekosystems_bl2040_mini.build.mcu=cortex-m0plus
 nekosystems_bl2040_mini.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+nekosystems_bl2040_mini.build.pico-sdk-switch=PICO_RP2040
 nekosystems_bl2040_mini.build.variant=nekosystems_bl2040_mini
 nekosystems_bl2040_mini.upload.maximum_size=4194304
 nekosystems_bl2040_mini.upload.wait_for_upload_port=true
@@ -13074,6 +13123,7 @@ newsan_archi.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 newsan_archi.build.board=NEWSAN_ARCHI
 newsan_archi.build.mcu=cortex-m0plus
 newsan_archi.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+newsan_archi.build.pico-sdk-switch=PICO_RP2040
 newsan_archi.build.variant=newsan_archi
 newsan_archi.upload.maximum_size=4194304
 newsan_archi.upload.wait_for_upload_port=true
@@ -13305,6 +13355,7 @@ nullbits_bit_c_pro.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 nullbits_bit_c_pro.build.board=NULLBITS_BIT_C_PRO
 nullbits_bit_c_pro.build.mcu=cortex-m0plus
 nullbits_bit_c_pro.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+nullbits_bit_c_pro.build.pico-sdk-switch=PICO_RP2040
 nullbits_bit_c_pro.build.variant=nullbits_bit_c_pro
 nullbits_bit_c_pro.upload.maximum_size=4194304
 nullbits_bit_c_pro.upload.wait_for_upload_port=true
@@ -13552,6 +13603,7 @@ olimex_rp2040pico30_2mb.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 olimex_rp2040pico30_2mb.build.board=OLIMEX_RP2040_PICO30_2MB
 olimex_rp2040pico30_2mb.build.mcu=cortex-m0plus
 olimex_rp2040pico30_2mb.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+olimex_rp2040pico30_2mb.build.pico-sdk-switch=PICO_RP2040
 olimex_rp2040pico30_2mb.build.variant=olimex_rp2040pico30_2mb
 olimex_rp2040pico30_2mb.upload.maximum_size=2097152
 olimex_rp2040pico30_2mb.upload.wait_for_upload_port=true
@@ -13785,6 +13837,7 @@ olimex_rp2040pico30_16mb.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 olimex_rp2040pico30_16mb.build.board=OLIMEX_RP2040_PICO30_16MB
 olimex_rp2040pico30_16mb.build.mcu=cortex-m0plus
 olimex_rp2040pico30_16mb.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+olimex_rp2040pico30_16mb.build.pico-sdk-switch=PICO_RP2040
 olimex_rp2040pico30_16mb.build.variant=olimex_rp2040pico30_16mb
 olimex_rp2040pico30_16mb.upload.maximum_size=16777216
 olimex_rp2040pico30_16mb.upload.wait_for_upload_port=true
@@ -14116,6 +14169,7 @@ pimoroni_pga2040.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 pimoroni_pga2040.build.board=PIMORONI_PGA2040
 pimoroni_pga2040.build.mcu=cortex-m0plus
 pimoroni_pga2040.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+pimoroni_pga2040.build.pico-sdk-switch=PICO_RP2040
 pimoroni_pga2040.build.variant=pimoroni_pga2040
 pimoroni_pga2040.upload.maximum_size=8388608
 pimoroni_pga2040.upload.wait_for_upload_port=true
@@ -14391,6 +14445,7 @@ pimoroni_plasma2040.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 pimoroni_plasma2040.build.board=PIMORONI_PLASMA2040
 pimoroni_plasma2040.build.mcu=cortex-m0plus
 pimoroni_plasma2040.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+pimoroni_plasma2040.build.pico-sdk-switch=PICO_RP2040
 pimoroni_plasma2040.build.variant=pimoroni_plasma2040
 pimoroni_plasma2040.upload.maximum_size=2097152
 pimoroni_plasma2040.upload.wait_for_upload_port=true
@@ -14624,6 +14679,7 @@ pimoroni_tiny2040.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 pimoroni_tiny2040.build.board=PIMORONI_TINY2040
 pimoroni_tiny2040.build.mcu=cortex-m0plus
 pimoroni_tiny2040.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+pimoroni_tiny2040.build.pico-sdk-switch=PICO_RP2040
 pimoroni_tiny2040.build.variant=pimoroni_tiny2040
 pimoroni_tiny2040.upload.maximum_size=2097152
 pimoroni_tiny2040.upload.wait_for_upload_port=true
@@ -14885,6 +14941,7 @@ rakwireless_rak11300.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 rakwireless_rak11300.build.board=RAKWIRELESS_RAK11300
 rakwireless_rak11300.build.mcu=cortex-m0plus
 rakwireless_rak11300.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+rakwireless_rak11300.build.pico-sdk-switch=PICO_RP2040
 rakwireless_rak11300.build.variant=rakwireless_rak11300
 rakwireless_rak11300.upload.maximum_size=2097152
 rakwireless_rak11300.upload.wait_for_upload_port=true
@@ -15102,6 +15159,7 @@ redscorp_rp2040_eins.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 redscorp_rp2040_eins.build.board=REDSCORP_RP2040_EINS
 redscorp_rp2040_eins.build.mcu=cortex-m0plus
 redscorp_rp2040_eins.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+redscorp_rp2040_eins.build.pico-sdk-switch=PICO_RP2040
 redscorp_rp2040_eins.build.variant=redscorp_rp2040_eins
 redscorp_rp2040_eins.upload.maximum_size=16777216
 redscorp_rp2040_eins.upload.wait_for_upload_port=true
@@ -15417,6 +15475,7 @@ redscorp_rp2040_promini.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 redscorp_rp2040_promini.build.board=REDSCORP_RP2040_PROMINI
 redscorp_rp2040_promini.build.mcu=cortex-m0plus
 redscorp_rp2040_promini.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+redscorp_rp2040_promini.build.pico-sdk-switch=PICO_RP2040
 redscorp_rp2040_promini.build.variant=redscorp_rp2040_promini
 redscorp_rp2040_promini.upload.maximum_size=16777216
 redscorp_rp2040_promini.upload.wait_for_upload_port=true
@@ -15724,6 +15783,7 @@ sea_picro.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 sea_picro.build.board=SEA_PICRO
 sea_picro.build.mcu=cortex-m0plus
 sea_picro.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+sea_picro.build.pico-sdk-switch=PICO_RP2040
 sea_picro.build.variant=sea_picro
 sea_picro.upload.maximum_size=8388608
 sea_picro.upload.wait_for_upload_port=true
@@ -15971,6 +16031,7 @@ silicognition_rp2040_shim.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 silicognition_rp2040_shim.build.board=SILICOGNITION_RP2040_SHIM
 silicognition_rp2040_shim.build.mcu=cortex-m0plus
 silicognition_rp2040_shim.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+silicognition_rp2040_shim.build.pico-sdk-switch=PICO_RP2040
 silicognition_rp2040_shim.build.variant=silicognition_rp2040_shim
 silicognition_rp2040_shim.upload.maximum_size=4194304
 silicognition_rp2040_shim.upload.wait_for_upload_port=true
@@ -16194,6 +16255,7 @@ solderparty_rp2040_stamp.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 solderparty_rp2040_stamp.build.board=SOLDERPARTY_RP2040_STAMP
 solderparty_rp2040_stamp.build.mcu=cortex-m0plus
 solderparty_rp2040_stamp.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+solderparty_rp2040_stamp.build.pico-sdk-switch=PICO_RP2040
 solderparty_rp2040_stamp.build.variant=solderparty_rp2040_stamp
 solderparty_rp2040_stamp.upload.maximum_size=8388608
 solderparty_rp2040_stamp.upload.wait_for_upload_port=true
@@ -16469,6 +16531,7 @@ sparkfun_micromodrp2040.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 sparkfun_micromodrp2040.build.board=SPARKFUN_MICROMOD_RP2040
 sparkfun_micromodrp2040.build.mcu=cortex-m0plus
 sparkfun_micromodrp2040.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+sparkfun_micromodrp2040.build.pico-sdk-switch=PICO_RP2040
 sparkfun_micromodrp2040.build.variant=sparkfun_micromodrp2040
 sparkfun_micromodrp2040.upload.maximum_size=16777216
 sparkfun_micromodrp2040.upload.wait_for_upload_port=true
@@ -16800,6 +16863,7 @@ sparkfun_promicrorp2040.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 sparkfun_promicrorp2040.build.board=SPARKFUN_PROMICRO_RP2040
 sparkfun_promicrorp2040.build.mcu=cortex-m0plus
 sparkfun_promicrorp2040.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+sparkfun_promicrorp2040.build.pico-sdk-switch=PICO_RP2040
 sparkfun_promicrorp2040.build.variant=sparkfun_promicrorp2040
 sparkfun_promicrorp2040.upload.maximum_size=16777216
 sparkfun_promicrorp2040.upload.wait_for_upload_port=true
@@ -17131,6 +17195,7 @@ sparkfun_thingplusrp2040.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 sparkfun_thingplusrp2040.build.board=SPARKFUN_THINGPLUS_RP2040
 sparkfun_thingplusrp2040.build.mcu=cortex-m0plus
 sparkfun_thingplusrp2040.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+sparkfun_thingplusrp2040.build.pico-sdk-switch=PICO_RP2040
 sparkfun_thingplusrp2040.build.variant=sparkfun_thingplusrp2040
 sparkfun_thingplusrp2040.upload.maximum_size=16777216
 sparkfun_thingplusrp2040.upload.wait_for_upload_port=true
@@ -17462,6 +17527,7 @@ upesy_rp2040_devkit.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 upesy_rp2040_devkit.build.board=UPESY_RP2040_DEVKIT
 upesy_rp2040_devkit.build.mcu=cortex-m0plus
 upesy_rp2040_devkit.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+upesy_rp2040_devkit.build.pico-sdk-switch=PICO_RP2040
 upesy_rp2040_devkit.build.variant=upesy_rp2040_devkit
 upesy_rp2040_devkit.upload.maximum_size=2097152
 upesy_rp2040_devkit.upload.wait_for_upload_port=true
@@ -17695,6 +17761,7 @@ seeed_indicator_rp2040.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 seeed_indicator_rp2040.build.board=SEEED_INDICATOR_RP2040
 seeed_indicator_rp2040.build.mcu=cortex-m0plus
 seeed_indicator_rp2040.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+seeed_indicator_rp2040.build.pico-sdk-switch=PICO_RP2040
 seeed_indicator_rp2040.build.variant=seeed_indicator_rp2040
 seeed_indicator_rp2040.upload.maximum_size=2097152
 seeed_indicator_rp2040.upload.wait_for_upload_port=true
@@ -17928,6 +17995,7 @@ seeed_xiao_rp2040.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 seeed_xiao_rp2040.build.board=SEEED_XIAO_RP2040
 seeed_xiao_rp2040.build.mcu=cortex-m0plus
 seeed_xiao_rp2040.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+seeed_xiao_rp2040.build.pico-sdk-switch=PICO_RP2040
 seeed_xiao_rp2040.build.variant=seeed_xiao_rp2040
 seeed_xiao_rp2040.upload.maximum_size=2097152
 seeed_xiao_rp2040.upload.wait_for_upload_port=true
@@ -18145,6 +18213,7 @@ vccgnd_yd_rp2040.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 vccgnd_yd_rp2040.build.board=YD_RP2040
 vccgnd_yd_rp2040.build.mcu=cortex-m0plus
 vccgnd_yd_rp2040.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+vccgnd_yd_rp2040.build.pico-sdk-switch=PICO_RP2040
 vccgnd_yd_rp2040.build.variant=vccgnd_yd_rp2040
 vccgnd_yd_rp2040.upload.maximum_size=16777216
 vccgnd_yd_rp2040.upload.wait_for_upload_port=true
@@ -18448,6 +18517,7 @@ viyalab_mizu.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 viyalab_mizu.build.board=VIYALAB_MIZU_RP2040
 viyalab_mizu.build.mcu=cortex-m0plus
 viyalab_mizu.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+viyalab_mizu.build.pico-sdk-switch=PICO_RP2040
 viyalab_mizu.build.variant=viyalab_mizu
 viyalab_mizu.upload.maximum_size=8388608
 viyalab_mizu.upload.wait_for_upload_port=true
@@ -18723,6 +18793,7 @@ waveshare_rp2040_zero.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 waveshare_rp2040_zero.build.board=WAVESHARE_RP2040_ZERO
 waveshare_rp2040_zero.build.mcu=cortex-m0plus
 waveshare_rp2040_zero.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+waveshare_rp2040_zero.build.pico-sdk-switch=PICO_RP2040
 waveshare_rp2040_zero.build.variant=waveshare_rp2040_zero
 waveshare_rp2040_zero.upload.maximum_size=2097152
 waveshare_rp2040_zero.upload.wait_for_upload_port=true
@@ -18956,6 +19027,7 @@ waveshare_rp2040_one.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 waveshare_rp2040_one.build.board=WAVESHARE_RP2040_ONE
 waveshare_rp2040_one.build.mcu=cortex-m0plus
 waveshare_rp2040_one.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+waveshare_rp2040_one.build.pico-sdk-switch=PICO_RP2040
 waveshare_rp2040_one.build.variant=waveshare_rp2040_one
 waveshare_rp2040_one.upload.maximum_size=4194304
 waveshare_rp2040_one.upload.wait_for_upload_port=true
@@ -19203,6 +19275,7 @@ waveshare_rp2040_matrix.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 waveshare_rp2040_matrix.build.board=WAVESHARE_RP2040_MATRIX
 waveshare_rp2040_matrix.build.mcu=cortex-m0plus
 waveshare_rp2040_matrix.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+waveshare_rp2040_matrix.build.pico-sdk-switch=PICO_RP2040
 waveshare_rp2040_matrix.build.variant=waveshare_rp2040_matrix
 waveshare_rp2040_matrix.upload.maximum_size=2097152
 waveshare_rp2040_matrix.upload.wait_for_upload_port=true
@@ -19436,6 +19509,7 @@ waveshare_rp2040_pizero.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 waveshare_rp2040_pizero.build.board=WAVESHARE_RP2040_PIZERO
 waveshare_rp2040_pizero.build.mcu=cortex-m0plus
 waveshare_rp2040_pizero.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+waveshare_rp2040_pizero.build.pico-sdk-switch=PICO_RP2040
 waveshare_rp2040_pizero.build.variant=waveshare_rp2040_pizero
 waveshare_rp2040_pizero.upload.maximum_size=16777216
 waveshare_rp2040_pizero.upload.wait_for_upload_port=true
@@ -19767,6 +19841,7 @@ waveshare_rp2040_plus_4mb.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 waveshare_rp2040_plus_4mb.build.board=WAVESHARE_RP2040_PLUS
 waveshare_rp2040_plus_4mb.build.mcu=cortex-m0plus
 waveshare_rp2040_plus_4mb.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+waveshare_rp2040_plus_4mb.build.pico-sdk-switch=PICO_RP2040
 waveshare_rp2040_plus_4mb.build.variant=waveshare_rp2040_plus_4mb
 waveshare_rp2040_plus_4mb.upload.maximum_size=4194304
 waveshare_rp2040_plus_4mb.upload.wait_for_upload_port=true
@@ -20014,6 +20089,7 @@ waveshare_rp2040_plus_16mb.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 waveshare_rp2040_plus_16mb.build.board=WAVESHARE_RP2040_PLUS
 waveshare_rp2040_plus_16mb.build.mcu=cortex-m0plus
 waveshare_rp2040_plus_16mb.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+waveshare_rp2040_plus_16mb.build.pico-sdk-switch=PICO_RP2040
 waveshare_rp2040_plus_16mb.build.variant=waveshare_rp2040_plus_16mb
 waveshare_rp2040_plus_16mb.upload.maximum_size=16777216
 waveshare_rp2040_plus_16mb.upload.wait_for_upload_port=true
@@ -20345,6 +20421,7 @@ waveshare_rp2040_lcd_0_96.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 waveshare_rp2040_lcd_0_96.build.board=WAVESHARE_RP2040_LCD_0_96
 waveshare_rp2040_lcd_0_96.build.mcu=cortex-m0plus
 waveshare_rp2040_lcd_0_96.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+waveshare_rp2040_lcd_0_96.build.pico-sdk-switch=PICO_RP2040
 waveshare_rp2040_lcd_0_96.build.variant=waveshare_rp2040_lcd_0_96
 waveshare_rp2040_lcd_0_96.upload.maximum_size=2097152
 waveshare_rp2040_lcd_0_96.upload.wait_for_upload_port=true
@@ -20578,6 +20655,7 @@ waveshare_rp2040_lcd_1_28.build.usbpwr=-DUSBD_MAX_POWER_MA=500
 waveshare_rp2040_lcd_1_28.build.board=WAVESHARE_RP2040_LCD_1_28
 waveshare_rp2040_lcd_1_28.build.mcu=cortex-m0plus
 waveshare_rp2040_lcd_1_28.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+waveshare_rp2040_lcd_1_28.build.pico-sdk-switch=PICO_RP2040
 waveshare_rp2040_lcd_1_28.build.variant=waveshare_rp2040_lcd_1_28
 waveshare_rp2040_lcd_1_28.upload.maximum_size=2097152
 waveshare_rp2040_lcd_1_28.upload.wait_for_upload_port=true
@@ -20811,6 +20889,7 @@ wiznet_5100s_evb_pico.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 wiznet_5100s_evb_pico.build.board=WIZNET_5100S_EVB_PICO
 wiznet_5100s_evb_pico.build.mcu=cortex-m0plus
 wiznet_5100s_evb_pico.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+wiznet_5100s_evb_pico.build.pico-sdk-switch=PICO_RP2040
 wiznet_5100s_evb_pico.build.variant=wiznet_5100s_evb_pico
 wiznet_5100s_evb_pico.upload.maximum_size=2097152
 wiznet_5100s_evb_pico.upload.wait_for_upload_port=true
@@ -21044,6 +21123,7 @@ wiznet_wizfi360_evb_pico.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 wiznet_wizfi360_evb_pico.build.board=WIZNET_WIZFI360_EVB_PICO
 wiznet_wizfi360_evb_pico.build.mcu=cortex-m0plus
 wiznet_wizfi360_evb_pico.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+wiznet_wizfi360_evb_pico.build.pico-sdk-switch=PICO_RP2040
 wiznet_wizfi360_evb_pico.build.variant=wiznet_wizfi360_evb_pico
 wiznet_wizfi360_evb_pico.upload.maximum_size=2097152
 wiznet_wizfi360_evb_pico.upload.wait_for_upload_port=true
@@ -21277,6 +21357,7 @@ wiznet_5500_evb_pico.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 wiznet_5500_evb_pico.build.board=WIZNET_5500_EVB_PICO
 wiznet_5500_evb_pico.build.mcu=cortex-m0plus
 wiznet_5500_evb_pico.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+wiznet_5500_evb_pico.build.pico-sdk-switch=PICO_RP2040
 wiznet_5500_evb_pico.build.variant=wiznet_5500_evb_pico
 wiznet_5500_evb_pico.upload.maximum_size=2097152
 wiznet_5500_evb_pico.upload.wait_for_upload_port=true
@@ -21486,6 +21567,7 @@ generic.build.usbpwr=-DUSBD_MAX_POWER_MA=250
 generic.build.board=GENERIC_RP2040
 generic.build.mcu=cortex-m0plus
 generic.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb
+generic.build.pico-sdk-switch=PICO_RP2040
 generic.build.variant=generic
 generic.upload.maximum_size=16777216
 generic.upload.wait_for_upload_port=true

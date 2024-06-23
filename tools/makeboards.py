@@ -198,9 +198,11 @@ def BuildHeader(name, processor, vendor_name, product_name, vid, pid, pwr, board
     if processor == "rp2040":
         print("%s.build.mcu=cortex-m0plus" % (name))
         print("%s.build.architecture=-march=armv6-m -mcpu=cortex-m0plus -mthumb" % (name))
+        print("%s.build.pico-sdk-switch=PICO_RP2040" % (name))
     else:
         print("%s.build.mcu=cortex-m33" % (name))
         print("%s.build.architecture=-mcpu=cortex-m33 -mthumb -march=armv8-m.main+fp+dsp -mfloat-abi=softfp" % (name))
+        print("%s.build.pico-sdk-switch=PICO_RP2350" % (name))
     print("%s.build.variant=%s" % (name, variant))
     print("%s.upload.maximum_size=%d" % (name, flashsize))
     print("%s.upload.wait_for_upload_port=true" % (name))
@@ -451,7 +453,7 @@ MakeBoard("challenger_2040_nfc", "rp2040", "iLabs", "Challenger 2040 NFC", "0x2e
 MakeBoard("challenger_2040_uwb", "rp2040", "iLabs", "Challenger 2040 UWB", "0x2e8a", "0x1052", 500, "CHALLENGER_2040_UWB_RP2040", 8, "boot2_w25q080_2_padded_checksum")
 MakeBoard("connectivity_2040_lte_wifi_ble", "rp2040", "iLabs", "Connectivity 2040 LTE/WiFi/BLE", "0x2e8a", "0x107b", 500, "CONNECTIVITY_2040_LTE_WIFI_BLE_RP2040", 8, "boot2_w25q080_2_padded_checksum", ["WIFIESPAT2"])
 MakeBoard("ilabs_rpico32", "rp2040", "iLabs", "RPICO32", "0x2e8a", "0x1010", 250, "ILABS_2040_RPICO32_RP2040", 8, "boot2_w25q080_2_padded_checksum", ["WIFIESPAT2"])
-MakeBoard("challenger_2350_wifi_ble", "rp2350", "iLabs", "Challenger 2350 WiFi/BLE", "0x2e8a", "0x1200", 500, "CHALLENGER_2350_WIFI_BLE_RP2350", 8, "boot2_w25q080_2_padded_checksum", ["WIFIESPAT2", "PICO_RP2350"])
+MakeBoard("challenger_2350_wifi_ble", "rp2350", "iLabs", "Challenger 2350 WiFi/BLE", "0x2e8a", "0x1200", 500, "CHALLENGER_2350_WIFI_BLE_RP2350", 8, "boot2_w25q080_2_padded_checksum", ["WIFIESPAT2"])
 
 # Melopero
 MakeBoard("melopero_cookie_rp2040", "rp2040", "Melopero", "Cookie RP2040", "0x2e8a", "0x1011", 250, "MELOPERO_COOKIE_RP2040", 8, "boot2_w25q080_2_padded_checksum")
