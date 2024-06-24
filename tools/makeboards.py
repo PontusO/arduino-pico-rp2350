@@ -33,10 +33,11 @@ def BuildDebugLevel(name):
         print("%s.menu.dbglvl.%s=%s" % (name, l[0], l[0]))
         print("%s.menu.dbglvl.%s.build.debug_level=%s" % (name, l[0], l[1]))
 
-def BuildFreq(name):
+def BuildFreq(name, processor):
     for f in [ 133,  50, 100, 120, 125, 128, 150, 175, 200, 225, 240, 250, 275, 300]:
         warn = ""
-        if f > 133: warn = " (Overclock)"
+        if processor == "rp2350" and f > 150: warn = " (Overclock)"
+        elif processor == "rp2040" and f > 133: warn = " (Overclock)"
         print("%s.menu.freq.%s=%s MHz%s" % (name, f, f, warn))
         print("%s.menu.freq.%s.build.f_cpu=%dL" % (name, f, f * 1000000))
 
@@ -259,7 +260,7 @@ def MakeBoard(name, processor, vendor_name, product_name, vid, pid, pwr, boardde
         BuildFlashMenu(name, 8*1024*1024, [0, 7*1024*1024, 4*1024*1024, 2*1024*1024])
     else:
         BuildFlashMenu(name, flashsizemb * 1024 * 1024, fssizelist)
-    BuildFreq(name)
+    BuildFreq(name, processor)
     BuildOptimize(name)
     BuildRTTI(name)
     BuildStackProtect(name)

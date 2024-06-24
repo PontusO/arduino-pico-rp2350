@@ -21,8 +21,9 @@
 #include <Arduino.h>
 #include "PIOProgram.h"
 #include <map>
+#include <hardware/platform_defs.h>
 
-static std::map<const pio_program_t *, int> __pioMap[2];
+static std::map<const pio_program_t *, int> __pioMap[NUM_PIOS];
 auto_init_mutex(_pioMutex);
 
 
@@ -42,10 +43,10 @@ PIOProgram::~PIOProgram() {
 // Possibly load into a PIO and allocate a SM
 bool PIOProgram::prepare(PIO *pio, int *sm, int *offset) {
     CoreMutex m(&_pioMutex);
-    PIO pi[2] = { pio0, pio1 };
+    PIO pi[NUM_PIOS] = { pio0, pio1, pio2 };
 
     // If it's already loaded into PIO IRAM, try and allocate in that specific PIO
-    for (int o = 0; o < 2; o++) {
+    for (int o = 0; o < NUM_PIOS; o++) {
         auto p = __pioMap[o].find(_pgm);
         if (p != __pioMap[o].end()) {
             int idx = pio_claim_unused_sm(pi[o], false);
@@ -61,7 +62,7 @@ bool PIOProgram::prepare(PIO *pio, int *sm, int *offset) {
     }
 
     // Not in any PIO IRAM, so try and add
-    for (int o = 0; o < 2; o++) {
+    for (int o = 0; o < NUM_PIOS; o++) {
         if (pio_can_add_program(pi[o], _pgm)) {
             int idx = pio_claim_unused_sm(pi[o], false);
             if (idx >= 0) {

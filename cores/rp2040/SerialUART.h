@@ -21,6 +21,7 @@
 #pragma once
 
 #include <Arduino.h>
+#include <hardware/gpio.h>
 #include "api/HardwareSerial.h"
 #include <stdarg.h>
 #include <queue>

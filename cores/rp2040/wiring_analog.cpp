@@ -18,13 +18,14 @@
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include <Arduino.h>
+
 #include <CoreMutex.h>
 #include <hardware/gpio.h>
 #include <hardware/pwm.h>
 #include <hardware/clocks.h>
 #include <hardware/pll.h>
 #include <hardware/adc.h>
+#include <Arduino.h>
 
 void __clearADCPin(pin_size_t p);
 
