@@ -66,10 +66,10 @@ static const uint8_t D11 = (3u);
 static const uint8_t D12 = (6u);
 static const uint8_t D13 = (7u);
 
-static const uint8_t A0 = (26u);
-static const uint8_t A1 = (27u);
-static const uint8_t A2 = (28u);
-static const uint8_t A3 = (29u);
+static const uint8_t A0 = (29u);
+static const uint8_t A1 = (28u);
+static const uint8_t A2 = (27u);
+static const uint8_t A3 = (26u);
 static const uint8_t A4 = (1u);
 static const uint8_t A5 = (PIN_SPI0_SS);
 
