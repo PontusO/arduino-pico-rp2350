@@ -1,4 +1,4 @@
--iwithprefixbefore/cores/rp2350/api/deprecated-avr-comp/
+-iwithprefixbefore/cores/rp2040/api/deprecated-avr-comp/
 -iwithprefixbefore/include/pico_base/
 -iwithprefixbefore/pico-sdk/lib/tinyusb/src/
 -iwithprefixbefore/pico-sdk/src/boards/include

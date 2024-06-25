@@ -12004,7 +12004,7 @@ challenger_2350_wifi_ble.build.ldscript=memmap_default.ld
 challenger_2350_wifi_ble.build.boot2=boot2_w25q080_2_padded_checksum
 challenger_2350_wifi_ble.build.usb_manufacturer="iLabs"
 challenger_2350_wifi_ble.build.usb_product="Challenger 2350 WiFi/BLE"
-challenger_2350_wifi_ble.build.extra_flags=-DWIFIESPAT2
+challenger_2350_wifi_ble.build.extra_flags=-DESPHOSTSPI=SPI1
 challenger_2350_wifi_ble.menu.flash.8388608_0=8MB (no FS)
 challenger_2350_wifi_ble.menu.flash.8388608_0.upload.maximum_size=8384512
 challenger_2350_wifi_ble.menu.flash.8388608_0.build.flash_total=8388608

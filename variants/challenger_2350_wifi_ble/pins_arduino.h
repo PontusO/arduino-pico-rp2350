@@ -40,6 +40,12 @@
 // Handshake signal from ESP32C3
 #define ESP32_HS            (22u)
 #define ESP32_SPI           SPI1
+// Declarations for ESPHOSTSPI
+// -DESPHOST_RESET=D5 -DESPHOST_HANDSHAKE=D7 -DESPHOST_DATA_READY=D6 -DESPHOST_CS=D1 -DESPHOSTSPI=SPI
+#define ESPHOST_RESET       PIN_ESP_RST
+#define ESPHOST_HANDSHAKE   ESP32_HS
+#define ESPHOST_DATA_READY  PIN_ESP_MODE
+#define ESPHOST_CS          PIN_SPI1_SS
 
 // Wire
 #define PIN_WIRE0_SDA       (20u)

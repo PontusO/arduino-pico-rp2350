@@ -30,6 +30,7 @@
 #include <pico/rand.h>
 #include <pico/util/queue.h>
 #include <pico/bootrom.h>
+#include <pico/bootrom_constants.h>
 #include "CoreMutex.h"
 #include "PIOProgram.h"
 #include "ccount.pio.h"
@@ -59,8 +60,16 @@ public:
     void registerCore() {
         if (!__isFreeRTOS) {
             multicore_fifo_clear_irq();
+#if defined(PICO_RP2350)
+            /* TODO: add proper irq handling */
+            //irq_set_exclusive_handler(SIO_IRQ_PROC0 + get_core_num(), _irq);
+            //irq_set_enabled(SIO_IRQ_PROC0 + get_core_num(), true);
+#elif defined(PICO_RP2040)
             irq_set_exclusive_handler(SIO_IRQ_PROC0 + get_core_num(), _irq);
             irq_set_enabled(SIO_IRQ_PROC0 + get_core_num(), true);
+#else
+  #error Raspberry Pi Pico family member not defined
+#endif
         }
         // FreeRTOS port.c will handle the IRQ hooking
     }
