@@ -47,7 +47,7 @@ for type in boot2_generic_03h boot2_w25q080; do
                    -s 0xffffffff $type.$div.bin ${type}_${div}_padded_checksum.S
     done
 done
-mv *.S ../../../../boot2/rp2350/.
+mv *.S ../../../../boot2/cortex-m33/.
 
 # Build for RP2040
 cd ../..
@@ -87,4 +87,4 @@ for type in boot2_generic_03h boot2_is25lp080 boot2_w25q080 boot2_w25x10cl; do
                    -s 0xffffffff $type.$div.bin ${type}_${div}_padded_checksum.S
     done
 done
-mv *.S ../../../../boot2/rp2040/.
+mv *.S ../../../../boot2/cortex-m0plus/.
