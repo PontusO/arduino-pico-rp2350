@@ -84,6 +84,9 @@
                      "name": "BridgeTek IDM2040-7A"
                   },
                   {
+                     "name": "BridgeTek IDM2040-43A"
+                  },
+                  {
                      "name": "Cytron Maker Nano RP2040"
                   },
                   {
@@ -160,6 +163,9 @@
                   },
                   {
                      "name": "Melopero Shake RP2040"
+                  },
+                  {
+                     "name": "METE HOCA Akana R1"
                   },
                   {
                      "name": "Neko Systems BL2040 Mini"
