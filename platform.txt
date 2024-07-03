@@ -54,7 +54,7 @@ compiler.includes="-iprefix{runtime.platform.path}/" "@{runtime.platform.path}/l
 compiler.flags=-mcpu={build.mcu} {build.architecture} -ffunction-sections -fdata-sections {build.flags.exceptions} {build.flags.stackprotect} {build.flags.cmsis} {build.picodebugflags}
 #compiler.wrap="@{runtime.platform.path}/lib/platform_wrap.txt"
 compiler.wrap=
-compiler.libbearssl="{runtime.platform.path}/lib/libbearssl.a"
+compiler.libbearssl="{runtime.platform.path}/lib/{build.mcu}/libbearssl.a"
 
 compiler.c.cmd=arm-none-eabi-gcc
 compiler.c.flags=-c {compiler.warning_flags} {compiler.defines} {compiler.flags} -MMD {compiler.includes} -std=gnu17 -g -pipe
