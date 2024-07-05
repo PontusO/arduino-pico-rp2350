@@ -159,6 +159,7 @@ void __wrap_clocks_init(void) {
                     48 * MHZ,
                     1 << 8);
 
+#if defined(PICO_RP2040)
     // CLK RTC = PLL USB (48MHz) / 1024 = 46875Hz
     _clock_configure(clk_rtc,
                     0, // No GLMUX
@@ -166,6 +167,7 @@ void __wrap_clocks_init(void) {
                     48 * MHZ,
                     46875,
                     32 << 8);
+#endif
 
     // CLK PERI = clk_sys. Used as reference clock for Peripherals. No dividers so just select and enable
     // Normally choose clk_sys or clk_usb

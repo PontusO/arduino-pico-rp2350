@@ -1,0 +1,4 @@
+-iwithprefixbefore/pico-sdk/src/rp2350/hardware_regs/include
+-iwithprefixbefore/pico-sdk/src/rp2350/hardware_structs/include
+-iwithprefixbefore/pico-sdk/src/rp2350/pico_platform/include
+-iwithprefixbefore/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RaspberryPi/RP2350/Include

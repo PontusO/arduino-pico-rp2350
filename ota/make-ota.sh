@@ -8,5 +8,5 @@ export PATH="$(cd ../system/arm-none-eabi/bin; pwd):$PATH"
 rm -rf build
 mkdir build
 cd build
-cmake ..
+cmake .. -DPICO_PLATFORM=rp2350
 make -j # VERBOSE=1
