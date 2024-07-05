@@ -61,6 +61,9 @@
 
 #define LED_BUILTIN         PIN_LED
 
+// Enables external PSRAM
+#define XIP_RAM_CHIP_SELECT_GPIO    0
+
 /* Pins mappings for marked pins on the board */
 static const uint8_t D0 = (13u);
 static const uint8_t D1 = (12u);
