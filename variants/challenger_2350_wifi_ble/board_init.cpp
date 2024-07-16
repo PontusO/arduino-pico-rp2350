@@ -29,6 +29,7 @@
 #if defined(XIP_RAM_CHIP_SELECT_GPIO)
 size_t _psram_size = 0;
 
+/* Must execute this from RAM */
 static void __no_inline_not_in_flash_func(setup_psram)(void) {
     uint32_t irq_status;
 
