@@ -9,7 +9,7 @@
     },
     "core": "earlephilhower",
     "cpu": "cortex-m0plus",
-    "extra_flags": "-D ARDUINO_CHALLENGER_2350_WIFI_BLE_RP2350 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 -DESPHOSTSPI=SPI1",
+    "extra_flags": "-D ARDUINO_CHALLENGER_2350_WIFI_BLE_RP2350 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500",
     "f_cpu": "133000000L",
     "hwids": [
       [
@@ -22,7 +22,7 @@
       ]
     ],
     "mcu": "rp2040",
-    "variant": "challenger_2350_wifi_ble"
+    "variant": "challenger_2350_wifi6_ble5"
   },
   "debug": {
     "jlink_device": "RP2040_M0_0",
@@ -32,7 +32,7 @@
   "frameworks": [
     "arduino"
   ],
-  "name": "Challenger 2350 WiFi/BLE (ESP_HOST)",
+  "name": "Challenger 2350 WiFi/BLE",
   "upload": {
     "maximum_ram_size": 270336,
     "maximum_size": 8388608,
