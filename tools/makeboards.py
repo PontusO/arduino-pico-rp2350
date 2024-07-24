@@ -251,9 +251,9 @@ def BuildGlobalMenuList():
 
 def BuildWifiType(name):
     print("%s.menu.wifitype.esp_at=ESP AT" % (name))
-    print("%s.menu.wifitype.esp_at.build.wifi=WIFIESPAT2" % (name))
+    print("%s.menu.wifitype.esp_at.build.wifi=-DWIFIESPAT2" % (name))
     print("%s.menu.wifitype.esp_hosted=ESP Hosted" % (name))
-    print("%s.menu.wifitype.esp_hosted.build.wifi=ESPHOSTSPI=SPI1" % (name))
+    print("%s.menu.wifitype.esp_hosted.build.wifi=-DESPHOSTSPI=SPI1" % (name))
 
 def MakeBoard(name, processor, vendor_name, product_name, vid, pid, pwr, boarddefine, flashsizemb, boot2, extra = None, board_url = None):
     fssizelist = [ 0, 64 * 1024, 128 * 1024, 256 * 1024, 512 * 1024 ]
@@ -475,6 +475,7 @@ MakeBoard("challenger_2040_uwb", "rp2040", "iLabs", "Challenger 2040 UWB", "0x2e
 MakeBoard("connectivity_2040_lte_wifi_ble", "rp2040", "iLabs", "Connectivity 2040 LTE/WiFi/BLE", "0x2e8a", "0x107b", 500, "CONNECTIVITY_2040_LTE_WIFI_BLE_RP2040", 8, "boot2_w25q080_2_padded_checksum", ["WIFIESPAT2"])
 MakeBoard("ilabs_rpico32", "rp2040", "iLabs", "RPICO32", "0x2e8a", "0x1010", 250, "ILABS_2040_RPICO32_RP2040", 8, "boot2_w25q080_2_padded_checksum", ["WIFIESPAT2"])
 MakeBoard("challenger_2350_wifi6_ble5", "rp2350", "iLabs", "Challenger 2350 WiFi/BLE", "0x2e8a", "0x1200", 500, "CHALLENGER_2350_WIFI_BLE_RP2350", 8, "boot2_w25q080_2_padded_checksum")
+MakeBoard("challenger_2350_bconnect", "rp2350", "iLabs", "Challenger 2350 BConnect", "0x2e8a", "0x1201", 500, "CHALLENGER_2350_BCONNECT_RP2350", 8, "boot2_w25q080_2_padded_checksum")
 
 # Melopero
 MakeBoard("melopero_cookie_rp2040", "rp2040", "Melopero", "Cookie RP2040", "0x2e8a", "0x1011", 250, "MELOPERO_COOKIE_RP2040", 8, "boot2_w25q080_2_padded_checksum")
