@@ -135,7 +135,7 @@ def BuildIPBTStack(name):
 def BuildUploadMethodMenu(name):
     for a, b, c, d, e, f in [ ["default", "Default (UF2)", 256, "picoprobe_cmsis_dap.tcl", "uf2conv", "uf2conv-network"],
                               ["picotool", "Picotool", 256, "picoprobe.tcl", "picotool", None],
-                              ["picoprobe_cmsis_dap", "Picoprobe (CMSIS-DAP)", 256, "picoprobe_cmsis_dap.tcl", "picoprobe_cmsis_dap", None],
+                              ["picoprobe_cmsis_dap", "Picoprobe/Debugprobe (CMSIS-DAP)", 256, "picoprobe_cmsis_dap.tcl", "picoprobe_cmsis_dap", None],
                               ["picodebug", "Pico-Debug", 240, "picodebug.tcl", "picodebug", None] ]:
         print("%s.menu.uploadmethod.%s=%s" % (name, a, b))
         print("%s.menu.uploadmethod.%s.build.ram_length=%dk" % (name, a, c))
@@ -416,6 +416,13 @@ MakeBoard("adafruit_trinkeyrp2040qt", "rp2040", "Adafruit", "Trinkey RP2040 QT",
 MakeBoard("adafruit_macropad2040", "rp2040", "Adafruit", "MacroPad RP2040", "0x239a", "0x8107", 250, "ADAFRUIT_MACROPAD_RP2040", 8, "boot2_w25q080_2_padded_checksum")
 MakeBoard("adafruit_kb2040", "rp2040", "Adafruit", "KB2040", "0x239a", "0x8105", 250, "ADAFRUIT_KB2040_RP2040", 8, "boot2_w25q080_2_padded_checksum")
 
+
+#Amken
+MakeBoard("amken_bunny","rp2040","Amken","BunnyBoard","0x2770",["0x7303"],250,"AMKEN_BB",128,"boot2_w25q128jvxq_4_padded_checksum","","https://www.amken3d.com")
+MakeBoard("amken_revelop","rp2040","Amken","Revelop","0x2770",["0x7304"],250,"AMKEN_REVELOP",32,"boot2_W25Q32JVxQ_4_padded_checksum","","https://www.amken3d.com")
+MakeBoard("amken_revelop_plus","rp2040","Amken","Revelop Plus","0x2770",["0x7305"],250,"AMKEN_REVELOP_PLUS",32,"boot2_W25Q32JVxQ_4_padded_checksum","","https://www.amken3d.com")
+MakeBoard("amken_revelop_es","rp2040","Amken","Revelop eS","0x2770",["0x7306"],250,"AMKEN_ES",16,"boot2_w25q16jvxq_4_padded_checksum","","https://www.amken3d.com")
+
 # Arduino
 MakeBoard("arduino_nano_connect", "rp2040", "Arduino", "Nano RP2040 Connect", "0x2341", ["0x005e", "0x805e", "0x015e", "0x025e"] , 250, "NANO_RP2040_CONNECT", 16, "boot2_w25q080_2_padded_checksum")
 
@@ -501,6 +508,9 @@ MakeBoard("olimex_rp2040pico30_16mb", "rp2040", "Olimex", "RP2040-Pico30 16MB", 
 MakeBoard("pimoroni_pga2040", "rp2040", "Pimoroni", "PGA2040", "0x2e8a", "0x1008", 250, "PIMORONI_PGA2040", 8, "boot2_w25q64jv_4_padded_checksum")
 MakeBoard("pimoroni_plasma2040", "rp2040", "Pimoroni", "Plasma2040", "0x2e8a", "0x100a", 500, "PIMORONI_PLASMA2040", 2, "boot2_w25q080_2_padded_checksum")
 MakeBoard("pimoroni_tiny2040", "rp2040", "Pimoroni", "Tiny2040", "0x2e8a", "0x100a", 500, "PIMORONI_TINY2040", 2, "boot2_w25q64jv_4_padded_checksum")
+
+#Pintronix
+MakeBoard("pintronix_pinmax", "rp2040", "Pintronix", "PinMax", "0x2e8a", "0x9101", 250, "PINTRONIX_PINMAX", 4, "boot2_w25q080_2_padded_checksum")
 
 # RAKwireless
 MakeBoard("rakwireless_rak11300", "rp2040", "RAKwireless", "RAK11300", "0x2e8a", "0x00c0", 500, "RAKWIRELESS_RAK11300", 2, "boot2_w25q16jvxq_4_padded_checksum", None, "https://store.rakwireless.com/products/wisduo-lpwan-module-rak11300")
