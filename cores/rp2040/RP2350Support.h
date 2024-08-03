@@ -1,7 +1,7 @@
 /*
-    ESP8285/ESP32C3 helper class for the Challenger RP2040 WiFi enabled boards
+    RP2350 support functions
 
-    Copyright (c) 2021,2022 P. Oldberg <pontus@ilabs.se>
+    Copyright (c) 2021 Earle F. Philhower, III <earlephilhower@yahoo.com>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
@@ -17,16 +17,6 @@
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-#include <Arduino.h>
-#include <ChallengerWiFi.h>
-#include <RP2350Support.h>
+#pragma once
 
-/**
- * Reset the ESP device before the user starts using the device.
- */
-void initVariant() {
-    Challenger2040WiFi.reset();
-#if defined(XIP_RAM_CHIP_SELECT_GPIO)
-    setup_psram();
-#endif
-}
+void setup_psram(void);

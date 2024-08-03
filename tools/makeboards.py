@@ -34,12 +34,26 @@ def BuildDebugLevel(name):
         print("%s.menu.dbglvl.%s.build.debug_level=%s" % (name, l[0], l[1]))
 
 def BuildFreq(name, processor):
-    for f in [ 133,  50, 100, 120, 125, 128, 150, 175, 200, 225, 240, 250, 275, 300]:
+    if processor == "rp2040":
+        freqlist = [ 133,  50, 100, 120, 125, 128, 150, 175, 200, 225, 240, 250, 275, 300]
+    else:
+        freqlist = [ 150,  50, 100, 120, 125, 128, 133, 175, 200, 225, 240, 250, 275, 300, 350, 400]
+    for f in freqlist:
         warn = ""
         if processor == "rp2350" and f > 150: warn = " (Overclock)"
         elif processor == "rp2040" and f > 133: warn = " (Overclock)"
         print("%s.menu.freq.%s=%s MHz%s" % (name, f, f, warn))
         print("%s.menu.freq.%s.build.f_cpu=%dL" % (name, f, f * 1000000))
+
+def BuildPSRAM(name):
+    print("%s.menu.psram.8mb=8MByte PSRAM" % (name))
+    print("%s.menu.psram.8mb.build.psram_length=0x800000" % (name))
+    print("%s.menu.psram.4mb=4MByte PSRAM" % (name))
+    print("%s.menu.psram.4mb.build.psram_length=0x400000" % (name))
+    print("%s.menu.psram.2mb=2MByte PSRAM" % (name))
+    print("%s.menu.psram.2mb.build.psram_length=0x200000" % (name))
+    print("%s.menu.psram.0mb=No PSRAM" % (name))
+    print("%s.menu.psram.0mb.build.psram_length=0" % (name))
 
 def BuildOptimize(name):
     for l in [ ("Small", "Small", "-Os", " (standard)"), ("Optimize", "Optimize", "-O", ""), ("Optimize2", "Optimize More", "-O2", ""),
@@ -132,11 +146,17 @@ def BuildIPBTStack(name):
     print('%s.menu.ipbtstack.ipv4ipv6btcblebig.build.libpicowdefs=-DLWIP_IPV6=1 -DLWIP_IPV4=1 -DENABLE_CLASSIC=1 -DENABLE_BLE=1 -D__LWIP_MEMMULT=2' % (name))
 
 
-def BuildUploadMethodMenu(name):
-    for a, b, c, d, e, f in [ ["default", "Default (UF2)", 256, "picoprobe_cmsis_dap.tcl", "uf2conv", "uf2conv-network"],
-                              ["picotool", "Picotool", 256, "picoprobe.tcl", "picotool", None],
-                              ["picoprobe_cmsis_dap", "Picoprobe/Debugprobe (CMSIS-DAP)", 256, "picoprobe_cmsis_dap.tcl", "picoprobe_cmsis_dap", None],
-                              ["picodebug", "Pico-Debug", 240, "picodebug.tcl", "picodebug", None] ]:
+def BuildUploadMethodMenu(name, processor):
+    if processor == "rp2040":
+        full_ram = 256
+        debug_ram = 240
+    else:
+        full_ram = 512
+        debug_ram = 496
+    for a, b, c, d, e, f in [ ["default", "Default (UF2)", full_ram, "picoprobe_cmsis_dap.tcl", "uf2conv", "uf2conv-network"],
+                              ["picotool", "Picotool", full_ram, "picoprobe.tcl", "picotool", None],
+                              ["picoprobe_cmsis_dap", "Picoprobe/Debugprobe (CMSIS-DAP)", full_ram, "picoprobe_cmsis_dap.tcl", "picoprobe_cmsis_dap", None],
+                              ["picodebug", "Pico-Debug", debug_ram, "picodebug.tcl", "picodebug", None] ]:
         print("%s.menu.uploadmethod.%s=%s" % (name, a, b))
         print("%s.menu.uploadmethod.%s.build.ram_length=%dk" % (name, a, c))
         print("%s.menu.uploadmethod.%s.build.debugscript=%s" % (name, a, d))
@@ -235,6 +255,7 @@ def WriteWarning():
 def BuildGlobalMenuList():
     print("menu.BoardModel=Model")
     print("menu.flash=Flash Size")
+    print("menu.psram=PSRAM Size")
     print("menu.freq=CPU Speed")
     print("menu.opt=Optimize")
     print("menu.rtti=RTTI")
@@ -272,11 +293,15 @@ def MakeBoard(name, processor, vendor_name, product_name, vid, pid, pwr, boardde
         BuildFlashMenu(name, 2*1024*1024, [0, 1*1024*1024])
         BuildFlashMenu(name, 8*1024*1024, [0, 7*1024*1024, 4*1024*1024, 2*1024*1024])
         BuildFlashMenu(name, 16*1024*1024, [0, 15*1024*1024, 14*1024*1024, 12*1024*1024, 8*1024*1024, 4*1024*1024, 2*1024*1024])
-    elif name == "challenger_2350_wifi6_ble5":
+    elif (name == "challenger_2350_wifi6_ble5") or (name == "challenger_2040_wifi_ble"):        
         BuildWifiType(name)
-        BuildFlashMenu(name, flashsizemb * 1024 * 1024, fssizelist)
+        BuildCountry(name)
+        BuildFlashMenu(name, 8*1024*1024, [0, 7*1024*1024, 4*1024*1024, 2*1024*1024])
+        BuildFlashMenu(name, 16*1024*1024, [0, 15*1024*1024, 14*1024*1024, 12*1024*1024, 8*1024*1024, 4*1024*1024, 2*1024*1024])
     else:
         BuildFlashMenu(name, flashsizemb * 1024 * 1024, fssizelist)
+    if processor == "rp2350":
+        BuildPSRAM(name)
     BuildFreq(name, processor)
     BuildOptimize(name)
     BuildRTTI(name)
@@ -287,12 +312,12 @@ def MakeBoard(name, processor, vendor_name, product_name, vid, pid, pwr, boardde
     BuildUSBStack(name)
     if name == "rpipicow":
         BuildCountry(name)
-    BuildIPBTStack(name)
+        BuildIPBTStack(name)
     if name == "generic":
         BuildBoot(name)
     elif name.startswith("adafruit") and "w25q080" in boot2:
         BuildBootW25Q(name)
-    BuildUploadMethodMenu(name)
+    BuildUploadMethodMenu(name, processor)
     MakeBoardJSON(name, vendor_name, product_name, vid, pid, pwr, boarddefine, flashsizemb, boot2, extra, board_url)
     global pkgjson
     thisbrd = {}
@@ -473,7 +498,7 @@ MakeBoard("challenger_2040_lte", "rp2040", "iLabs", "Challenger 2040 LTE", "0x2e
 MakeBoard("challenger_2040_lora", "rp2040", "iLabs", "Challenger 2040 LoRa", "0x2e8a", "0x1023", 250, "CHALLENGER_2040_LORA_RP2040", 8, "boot2_w25q080_2_padded_checksum")
 MakeBoard("challenger_2040_subghz", "rp2040", "iLabs", "Challenger 2040 SubGHz", "0x2e8a", "0x1032", 250, "CHALLENGER_2040_SUBGHZ_RP2040", 8, "boot2_w25q080_2_padded_checksum")
 MakeBoard("challenger_2040_wifi", "rp2040", "iLabs", "Challenger 2040 WiFi", "0x2e8a", "0x1006", 250, "CHALLENGER_2040_WIFI_RP2040", 8, "boot2_w25q080_2_padded_checksum", ["WIFIESPAT2"])
-MakeBoard("challenger_2040_wifi_ble", "rp2040", "iLabs", "Challenger 2040 WiFi/BLE", "0x2e8a", "0x102C", 500, "CHALLENGER_2040_WIFI_BLE_RP2040", 8, "boot2_w25q080_2_padded_checksum", ["WIFIESPAT2"])
+MakeBoard("challenger_2040_wifi_ble", "rp2040", "iLabs", "Challenger 2040 WiFi/BLE", "0x2e8a", "0x102C", 500, "CHALLENGER_2040_WIFI_BLE_RP2040", 8, "boot2_w25q080_2_padded_checksum")
 MakeBoard("challenger_2040_wifi6_ble", "rp2040", "iLabs", "Challenger 2040 WiFi6/BLE", "0x2e8a", "0x105F", 500, "CHALLENGER_2040_WIFI6_BLE_RP2040", 8, "boot2_w25q080_2_padded_checksum", ["WIFIESPAT2"])
 MakeBoard("challenger_nb_2040_wifi", "rp2040", "iLabs", "Challenger NB 2040 WiFi", "0x2e8a", "0x100d", 500, "CHALLENGER_NB_2040_WIFI_RP2040", 8, "boot2_w25q080_2_padded_checksum", ["WIFIESPAT2"])
 MakeBoard("challenger_2040_sdrtc", "rp2040", "iLabs", "Challenger 2040 SD/RTC", "0x2e8a", "0x102d", 250, "CHALLENGER_2040_SDRTC_RP2040", 8, "boot2_w25q080_2_padded_checksum")
@@ -481,8 +506,8 @@ MakeBoard("challenger_2040_nfc", "rp2040", "iLabs", "Challenger 2040 NFC", "0x2e
 MakeBoard("challenger_2040_uwb", "rp2040", "iLabs", "Challenger 2040 UWB", "0x2e8a", "0x1052", 500, "CHALLENGER_2040_UWB_RP2040", 8, "boot2_w25q080_2_padded_checksum")
 MakeBoard("connectivity_2040_lte_wifi_ble", "rp2040", "iLabs", "Connectivity 2040 LTE/WiFi/BLE", "0x2e8a", "0x107b", 500, "CONNECTIVITY_2040_LTE_WIFI_BLE_RP2040", 8, "boot2_w25q080_2_padded_checksum", ["WIFIESPAT2"])
 MakeBoard("ilabs_rpico32", "rp2040", "iLabs", "RPICO32", "0x2e8a", "0x1010", 250, "ILABS_2040_RPICO32_RP2040", 8, "boot2_w25q080_2_padded_checksum", ["WIFIESPAT2"])
-MakeBoard("challenger_2350_wifi6_ble5", "rp2350", "iLabs", "Challenger 2350 WiFi/BLE", "0x2e8a", "0x1200", 500, "CHALLENGER_2350_WIFI_BLE_RP2350", 8, "boot2_w25q080_2_padded_checksum")
-MakeBoard("challenger_2350_bconnect", "rp2350", "iLabs", "Challenger 2350 BConnect", "0x2e8a", "0x1201", 500, "CHALLENGER_2350_BCONNECT_RP2350", 8, "boot2_w25q080_2_padded_checksum")
+MakeBoard("challenger_2350_wifi6_ble5", "rp2350", "iLabs", "Challenger 2350 WiFi/BLE", "0x2e8a", "0x109a", 500, "CHALLENGER_2350_WIFI_BLE_RP2350", 8, "boot2_w25q080_2_padded_checksum")
+MakeBoard("challenger_2350_bconnect", "rp2350", "iLabs", "Challenger 2350 BConnect", "0x2e8a", "0x109b", 500, "CHALLENGER_2350_BCONNECT_RP2350", 8, "boot2_w25q080_2_padded_checksum")
 
 # Melopero
 MakeBoard("melopero_cookie_rp2040", "rp2040", "Melopero", "Cookie RP2040", "0x2e8a", "0x1011", 250, "MELOPERO_COOKIE_RP2040", 8, "boot2_w25q080_2_padded_checksum")

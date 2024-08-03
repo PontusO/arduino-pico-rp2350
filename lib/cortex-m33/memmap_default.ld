@@ -23,25 +23,33 @@
 
 MEMORY
 {
-    FLASH(rx) : ORIGIN = 0x10000000, LENGTH = 8192k
-    RAM(rwx) : ORIGIN =  0x20000000, LENGTH = 512k
+    FLASH(rx) : ORIGIN = 0x10000000, LENGTH = __FLASH_LENGTH__
+    PSRAM(rwx) : ORIGIN = 0x11000000, LENGTH = __PSRAM_LENGTH__
+    RAM(rwx) : ORIGIN =  0x20000000, LENGTH = __RAM_LENGTH__
     SCRATCH_X(rwx) : ORIGIN = 0x20080000, LENGTH = 4k
     SCRATCH_Y(rwx) : ORIGIN = 0x20081000, LENGTH = 4k
 }
+PROVIDE ( _EEPROM_start = __EEPROM_START__ );
+PROVIDE ( _FS_start     = __FS_START__ );
+PROVIDE ( _FS_end       = __FS_END__ );
+
 
 ENTRY(_entry_point)
 
 SECTIONS
 {
+    /* Second stage bootloader is prepended to the image. It must be 256 bytes big
+       and checksummed. It is usually built by the boot_stage2 target
+       in the Raspberry Pi Pico SDK
+    */
+
     .flash_begin : {
         __flash_binary_start = .;
     } > FLASH
 
-    /* The bootrom will enter the image at the point indicated in your
-       IMAGE_DEF, which is usually the reset handler of your vector table.
-
+    /* The second stage will always enter the image at the start of .text.
        The debugger will use the ELF entry point, which is the _entry_point
-       symbol, and in our case is *different from the bootrom's entry point.*
+       symbol, and in our case is *different from the bootrom's entry point.
        This is used to go back through the bootrom on debugger launches only,
        to perform the same initial flash setup that would be performed on a
        cold boot.
@@ -57,7 +65,9 @@ SECTIONS
         /* bit of a hack right now to exclude all floating point and time critical (e.g. memset, memcpy) code from
          * FLASH ... we will include any thing excluded here in .data below by default */
         *(.init)
-        *(EXCLUDE_FILE(*libgcc.a: *libc.a:*lib_a-mem*.o *libm.a:) .text*)
+        /* Some of these excludes required for PicoDVI library, won't affect most code */
+        *(EXCLUDE_FILE(*libgcc.a: *libc.a:*lib_a-mem*.o *libm.a: *interp.c.obj *divider.S.obj *PicoDVI.cpp.o *dvi.c.o) .text*)
+
         *(.fini)
         /* Pull all c'tors into .text */
         *crtbegin.o(.ctors)
@@ -218,6 +228,15 @@ SECTIONS
         __bss_end__ = .;
     } > RAM
 
+    /* At most one of the following two will be engaged, depending on the SDK version */
+    .uninitialized_ram MAX(0x20003000, .) (NOLOAD) : {
+        *(.uninitialized_ram*)
+    } > RAM
+
+    .uninitialized_data MAX(0x20003000, .) (NOLOAD) : {
+        *(.uninitialized_data*)
+    } > RAM
+
     .heap (NOLOAD):
     {
         __end__ = .;
@@ -246,7 +265,11 @@ SECTIONS
 
     .flash_end : {
         PROVIDE(__flash_binary_end = .);
-    } > FLASH =0xaa
+    } > FLASH
+
+    .psram (NOLOAD) : {
+        *(.psram*)
+    } > PSRAM
 
     /* stack limit is poorly named, but historically is maximum heap ptr */
     __StackLimit = ORIGIN(RAM) + LENGTH(RAM);

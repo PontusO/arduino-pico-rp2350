@@ -32,6 +32,17 @@
 #define PIN_SPI0_SCK        (22u)
 #define PIN_SPI0_SS         (21u)
 
+// From the schematic
+// RP2040   SIGNAL       ESP32
+// GPIO4    RP2040_TXD   GPIO20
+// GPIO5    RP2040_RXD   GPIO21
+// GPIO13   ESP32_CS     GPIO10
+// GPIO12   ESP32_RX     GPIO7
+// GPIO14   ESP32_SCK    GPIO6
+// GPIO15   ESP32_TX     GPIO2
+// GPIO18   ESP32_HS     GPIO3
+// GPIO24   ESP32_BOOT   GPIO9
+//
 // SPI connected to ESP32C3
 #define PIN_SPI1_MISO       (12u)
 #define PIN_SPI1_MOSI       (15u)
@@ -40,6 +51,14 @@
 // Handshake signal from ESP32C3
 #define ESP32_HS            (18u)
 #define ESP32_SPI           SPI1
+
+// Declarations for ESPHOSTSPI
+// -DESPHOST_RESET=D5 -DESPHOST_HANDSHAKE=D7 -DESPHOST_DATA_READY=D6 -DESPHOST_CS=D1 -DESPHOSTSPI=SPI
+#define ESPHOST_RESET       PIN_ESP_RST
+#define ESPHOST_HANDSHAKE   ESP32_HS
+#define ESPHOST_DATA_READY  PIN_ESP_MODE
+#define ESPHOST_CS          PIN_SPI1_SS
+#define ESPHOSTSPI_MHZ      10
 
 // Wire
 #define PIN_WIRE0_SDA       (0u)
@@ -85,3 +104,14 @@ static const uint8_t A2 = (28u);
 static const uint8_t A3 = (29u);
 static const uint8_t A4 = (25u);
 static const uint8_t A5 = (21u);
+
+static const uint8_t SS = PIN_SPI0_SS;
+static const uint8_t MOSI = PIN_SPI0_MOSI;
+static const uint8_t MISO = PIN_SPI0_MISO;
+static const uint8_t SCK = PIN_SPI0_SCK;
+
+static const uint8_t SDA = PIN_WIRE0_SDA;
+static const uint8_t SCL = PIN_WIRE0_SCL;
+
+static const uint8_t RX = PIN_SERIAL1_RX;
+static const uint8_t TX = PIN_SERIAL1_TX;

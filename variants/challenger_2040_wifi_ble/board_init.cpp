@@ -25,5 +25,16 @@
     using the device.
 */
 void initVariant() {
+#if defined(ESPHOSTSPI)
+    pinMode(PIN_ESP_RST, OUTPUT);
+    digitalWrite(PIN_ESP_RST, LOW);       // Hold ESP in reset
+    pinMode(PIN_ESP_MODE, OUTPUT);
+    digitalWrite(PIN_ESP_MODE, HIGH);     // Prepare for normal start
+    delay(1);
+    digitalWrite(PIN_ESP_RST, HIGH);      // Release reset
+    delay(1);
+    pinMode(PIN_ESP_MODE, INPUT_PULLUP);  // ESP Host use as DATA READY
+#else
     Challenger2040WiFi.reset();
+#endif
 }

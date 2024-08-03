@@ -46,6 +46,7 @@
 #define ESPHOST_HANDSHAKE   ESP32_HS
 #define ESPHOST_DATA_READY  PIN_ESP_MODE
 #define ESPHOST_CS          PIN_SPI1_SS
+#define ESPHOSTSPI_MHZ      1
 
 // Wire
 #define PIN_WIRE0_SDA       (20u)
