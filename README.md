@@ -2,9 +2,9 @@
 [![Release](https://img.shields.io/github/v/release/earlephilhower/arduino-pico?style=plastic)](https://github.com/earlephilhower/arduino-pico/releases)
 [![Gitter](https://img.shields.io/gitter/room/earlephilhower/arduino-pico?style=plastic)](https://gitter.im/arduino-pico/community)
 
-Raspberry Pi RP2350 Arduino core, for all RP2350 boards
+Raspberry Pi RP2040/RP2350 Arduino core, for all RP2040 and RP2350 boards
 
-This is a port of the RP2350 to the Arduino ecosystem. It uses the bare Raspberry Pi Pico SDK and a custom GCC 12.3/Newlib 4.0 toolchain.
+This BSP is a port of the Arduino Pico framework done by Earle F. Philhower, III to support the new RP2350 processors by Raspberry Pi. It uses the bare Raspberry Pi Pico SDK and a custom GCC 12.3/Newlib 4.0 toolchain.
 
 # Documentation
 See https://arduino-pico.readthedocs.io/en/latest/ along with the examples for more detailed usage information.
@@ -54,6 +54,8 @@ Read the [Contributing Guide](https://github.com/earlephilhower/arduino-pico/blo
 * Invector Labs Challenger RP2040 SubGHz
 * Invector Labs Challenger RP2040 SD/RTC
 * Invector Labs Challenger RP2040 UWB
+* Invector Labs Challenger RP2350 WiFi6/BLE5
+* Invector Labs Challenger RP2350 BConnect
 * Invector Labs RPICO32
 * Melopero Cookie RP2040
 * Melopero Shake RP2040
@@ -123,6 +125,10 @@ The RP2040 PIO state machines (SMs) are used to generate jitter-free:
 
 
 # Installing via Arduino Boards Manager
+
+Important notice !
+As long as this project is in "Alpha" state there will not be any package to install this from the Arduino IDE. Instead check out how it is done uing git.
+
 ## Windows-specific Notes
 Please do not use the Windows Store version of the actual Arduino application
 because it has issues detecting attached Pico boards.  Use the "Windows ZIP" or plain "Windows"
@@ -176,7 +182,7 @@ may be errors when attempting to clone the submodules.
 To install via GIT (for latest and greatest versions):
 ````
 mkdir -p ~/Arduino/hardware/pico
-git clone https://github.com/earlephilhower/arduino-pico.git ~/Arduino/hardware/pico/rp2040
+git clone https://github.com/PontusO/arduino-pico-rp2350.git ~/Arduino/hardware/pico/rp2040
 cd ~/Arduino/hardware/pico/rp2040
 git submodule update --init
 cd pico-sdk
