@@ -7,31 +7,32 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_BUILD_TYPE RelWithDebInfo)
 
-# Enable PicoW driver support.  Compatible with standard Pico
-set(PICO_BOARD pico_w)
-
 # Initialize the SDK
 pico_sdk_init()
 
+if(${PICO_PLATFORM} STREQUAL rp2040)
+    set(enable_pico_wifi 
+        CYW43_WARN=//
+        PICO_CYW43_ARCH_THREADSAFE_BACKGROUND=1
+        LWIP_IPV4=1
+        LWIP_UDP=1
+        LWIP_IGMP=1
+        LWIP_CHECKSUM_CTRL_PER_NETIF=1)
+endif()
+
 add_library(common INTERFACE)
 
-# Use a longer XOSC startup time, to accommodate Adafruit and other boards that may need it.
 target_compile_definitions(common INTERFACE
     PICO_PRINTF_ALWAYS_INCLUDED=1
     PICO_FLASH_SIZE_BYTES=16777216
     PICO_XOSC_STARTUP_DELAY_MULTIPLIER=64
-    CYW43_WARN=//
     PICO_FLOAT_SUPPORT_ROM_V1=1
     PICO_DOUBLE_SUPPORT_ROM_V1=1
     PICO_RP2040_B0_SUPPORTED=1
     PICO_RP2040_B1_SUPPORTED=1
     PICO_RP2040_B2_SUPPORTED=1
-    PICO_NO_BINARY_INFO=1
-    PICO_CYW43_ARCH_THREADSAFE_BACKGROUND=1
-    LWIP_IPV4=1
-    LWIP_UDP=1
-    LWIP_IGMP=1
-    LWIP_CHECKSUM_CTRL_PER_NETIF=1
+    #PICO_NO_BINARY_INFO=1
+    ${enable_pico_wifi}
 )
 
 target_compile_options(common INTERFACE
@@ -99,113 +100,121 @@ target_link_libraries(pico
     tinyusb_device_unmarked
 )
 
-add_library(picow-noipv6-nobtc-noble STATIC)
-target_compile_definitions(picow-noipv6-nobtc-noble PUBLIC
-    LWIP_IPV6=0
-)
+if(${PICO_PLATFORM} STREQUAL rp2040)
+    add_library(picow-noipv6-nobtc-noble STATIC)
+    target_compile_definitions(picow-noipv6-nobtc-noble PUBLIC
+        LWIP_IPV6=0
+    )
 
-add_library(picow-noipv6-nobtc-noble-big STATIC)
-target_compile_definitions(picow-noipv6-nobtc-noble-big PUBLIC
-    __LWIP_MEMMULT=2
-    LWIP_IPV6=0
-)
+    add_library(picow-noipv6-nobtc-noble-big STATIC)
+    target_compile_definitions(picow-noipv6-nobtc-noble-big PUBLIC
+        __LWIP_MEMMULT=2
+        LWIP_IPV6=0
+    )
 
-set(picow_link_libraries
-    common
-    cyw43_driver
-    cyw43_driver_picow
-    pico_async_context
-    pico_cyw43_driver
-    pico_cyw43_arch
-    pico_cyw43_arch_threadsafe_background
-    pico_lwip
-    pico_lwip_nosys
-    pico_lwip_sntp
-    pico_stdlib
-)
+    set(picow_link_libraries
+        common
+        cyw43_driver
+        cyw43_driver_picow
+        pico_async_context
+        pico_cyw43_driver
+        pico_cyw43_arch
+        pico_cyw43_arch_threadsafe_background
+        pico_lwip
+        pico_lwip_nosys
+        pico_lwip_sntp
+        pico_stdlib
+    )
 
-target_link_libraries(picow-noipv6-nobtc-noble
-    ${picow_link_libraries}
-)
+    target_link_libraries(picow-noipv6-nobtc-noble
+        ${picow_link_libraries}
+    )
 
-target_link_libraries(picow-noipv6-nobtc-noble-big
-    ${picow_link_libraries}
-)
+    target_link_libraries(picow-noipv6-nobtc-noble-big
+        ${picow_link_libraries}
+    )
 
-add_library(picow-ipv6-nobtc-noble STATIC)
-target_compile_definitions(picow-ipv6-nobtc-noble PUBLIC
-    LWIP_IPV6=1
-)
+    add_library(picow-ipv6-nobtc-noble STATIC)
+    target_compile_definitions(picow-ipv6-nobtc-noble PUBLIC
+        LWIP_IPV6=1
+    )
 
-add_library(picow-ipv6-nobtc-noble-big STATIC)
-target_compile_definitions(picow-ipv6-nobtc-noble-big PUBLIC
-    __LWIP_MEMMULT=2
-    LWIP_IPV6=1
-)
+    add_library(picow-ipv6-nobtc-noble-big STATIC)
+    target_compile_definitions(picow-ipv6-nobtc-noble-big PUBLIC
+        __LWIP_MEMMULT=2
+        LWIP_IPV6=1
+    )
 
-target_link_libraries(picow-ipv6-nobtc-noble
-    ${picow_link_libraries}
-)
+    target_link_libraries(picow-ipv6-nobtc-noble
+        ${picow_link_libraries}
+    )
 
-target_link_libraries(picow-ipv6-nobtc-noble-big
-    ${picow_link_libraries}
-)
+    target_link_libraries(picow-ipv6-nobtc-noble-big
+        ${picow_link_libraries}
+    )
 
-add_library(picow-noipv6-btc-ble STATIC)
-target_compile_definitions(picow-noipv6-btc-ble PUBLIC
-    LWIP_IPV6=0
-)
+    add_library(picow-noipv6-btc-ble STATIC)
+    target_compile_definitions(picow-noipv6-btc-ble PUBLIC
+        LWIP_IPV6=0
+    )
 
-add_library(picow-noipv6-btc-ble-big STATIC)
-target_compile_definitions(picow-noipv6-btc-ble-big PUBLIC
-    __LWIP_MEMMULT=2
-    LWIP_IPV6=0
-)
+    add_library(picow-noipv6-btc-ble-big STATIC)
+    target_compile_definitions(picow-noipv6-btc-ble-big PUBLIC
+        __LWIP_MEMMULT=2
+        LWIP_IPV6=0
+    )
 
-set(picow_bt_link_libraries
-    pico_btstack_cyw43
-    pico_btstack_ble
-    pico_btstack_classic
-    pico_btstack_sbc_encoder
-    pico_btstack_sbc_decoder
-)
+    set(picow_bt_link_libraries
+        pico_btstack_cyw43
+        pico_btstack_ble
+        pico_btstack_classic
+        pico_btstack_sbc_encoder
+        pico_btstack_sbc_decoder
+    )
 
-target_link_libraries(picow-noipv6-btc-ble
-    ${picow_link_libraries}
-    ${picow_bt_link_libraries}
-)
+    target_link_libraries(picow-noipv6-btc-ble
+        ${picow_link_libraries}
+        ${picow_bt_link_libraries}
+    )
 
-target_link_libraries(picow-noipv6-btc-ble-big
-    ${picow_link_libraries}
-    ${picow_bt_link_libraries}
-)
+    target_link_libraries(picow-noipv6-btc-ble-big
+        ${picow_link_libraries}
+        ${picow_bt_link_libraries}
+    )
 
-add_library(picow-ipv6-btc-ble STATIC)
-target_compile_definitions(picow-ipv6-btc-ble PUBLIC
-    LWIP_IPV6=1
-)
+    add_library(picow-ipv6-btc-ble STATIC)
+    target_compile_definitions(picow-ipv6-btc-ble PUBLIC
+        LWIP_IPV6=1
+    )
 
-add_library(picow-ipv6-btc-ble-big STATIC)
-target_compile_definitions(picow-ipv6-btc-ble-big PUBLIC
-    __LWIP_MEMMULT=2
-    LWIP_IPV6=1
-)
+    add_library(picow-ipv6-btc-ble-big STATIC)
+    target_compile_definitions(picow-ipv6-btc-ble-big PUBLIC
+        __LWIP_MEMMULT=2
+        LWIP_IPV6=1
+    )
 
-target_link_libraries(picow-ipv6-btc-ble
-    ${picow_link_libraries}
-    ${picow_bt_link_libraries}
-)
+    target_link_libraries(picow-ipv6-btc-ble
+        ${picow_link_libraries}
+        ${picow_bt_link_libraries}
+    )
 
-target_link_libraries(picow-ipv6-btc-ble-big
-    ${picow_link_libraries}
-    ${picow_bt_link_libraries}
-)
+    target_link_libraries(picow-ipv6-btc-ble-big
+        ${picow_link_libraries}
+        ${picow_bt_link_libraries}
+    )
 
+    set(library_list pico picow-noipv6-nobtc-noble picow-ipv6-nobtc-noble picow-noipv6-btc-ble picow-ipv6-btc-ble picow-noipv6-nobtc-noble-big picow-ipv6-nobtc-noble-big picow-noipv6-btc-ble-big picow-ipv6-btc-ble-big)
+    set(target_mcu_core cortex-m0plus)
+else()
+    set(library_list pico)
+    set(target_mcu_core cortex-m33)
+endif()
 
-foreach(tgt pico picow-noipv6-nobtc-noble picow-ipv6-nobtc-noble picow-noipv6-btc-ble picow-ipv6-btc-ble picow-noipv6-nobtc-noble-big picow-ipv6-nobtc-noble-big picow-noipv6-btc-ble-big picow-ipv6-btc-ble-big)
+foreach(tgt ${library_list})
     add_custom_command(TARGET ${tgt} POST_BUILD
-        COMMAND ar d lib${tgt}.a stdio.c.obj stdio_uart.c.obj stdio_usb.c.obj stdio_usb_descriptors.c.obj pico_malloc.c.obj
+        COMMAND echo "Post build is being executed"
+        COMMAND ar d lib${tgt}.a stdio_uart.c.obj stdio_usb.c.obj stdio_usb_descriptors.c.obj pico_malloc.c.obj
         COMMAND ar d lib${tgt}.a btstack_flash_bank.c.obj  # Need to override with our own implementation
-        COMMAND cp lib${tgt}.a ../../../lib/${PICO_PLATFORM}/.
+        COMMAND cp lib${tgt}.a ../../../lib/${target_mcu_core}/.
     )
 endforeach()

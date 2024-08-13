@@ -14,6 +14,6 @@
 #define PICO_SDK_VERSION_MAJOR    2
 #define PICO_SDK_VERSION_MINOR    0
 #define PICO_SDK_VERSION_REVISION 0
-#define PICO_SDK_VERSION_STRING   "2.0.0-alpha"
+#define PICO_SDK_VERSION_STRING   "2.0.0"
 
 #endif

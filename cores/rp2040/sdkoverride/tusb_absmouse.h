@@ -25,17 +25,6 @@
 #include "tusb.h"
 #include "class/hid/hid_device.h"
 
-// Absolute Mouse: same as the Standard (relative) Mouse Report but
-// with int16_t instead of int8_t for X and Y coordinates.
-typedef struct TU_ATTR_PACKED {
-    uint8_t buttons; /**< buttons mask for currently pressed buttons in the mouse. */
-    int16_t x;       /**< Current x position of the mouse. */
-    int16_t y;       /**< Current y position of the mouse. */
-    int8_t wheel;    /**< Current delta wheel movement on the mouse. */
-    int8_t pan;      // using AC Pan
-} hid_abs_mouse_report_t;
-
-
 // Absolute Mouse Report Descriptor Template
 #define TUD_HID_REPORT_DESC_ABSMOUSE(...) \
   HID_USAGE_PAGE ( HID_USAGE_PAGE_DESKTOP      )                   ,\
@@ -83,19 +72,4 @@ typedef struct TU_ATTR_PACKED {
         HID_REPORT_SIZE ( 8                                      ), \
         HID_INPUT       ( HID_DATA | HID_VARIABLE | HID_RELATIVE ), \
     HID_COLLECTION_END                                            , \
-  HID_COLLECTION_END \
-
-
-static inline bool tud_hid_abs_mouse_report(uint8_t report_id,
-        uint8_t buttons, int16_t x, int16_t y, int8_t vertical, int8_t horizontal) {
-    hid_abs_mouse_report_t report = {
-        .buttons = buttons,
-        .x       = x,
-        .y       = y,
-        .wheel   = vertical,
-        .pan     = horizontal
-    };
-
-    return tud_hid_n_report(0, report_id, &report, sizeof(report));
-}
-
+  HID_COLLECTION_END

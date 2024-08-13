@@ -30,7 +30,7 @@
 #include <pins_arduino.h>
 #include "debug_internal.h"
 #if defined(PICO_RP2350)
-  #include <RP2350.h> // CMSIS
+//  #include <RP2350.h> // CMSIS
 #elif defined(PICO_RP2040)
   #include <hardware/gpio.h> // Required for the port*Register macros
   #include <RP2040.h> // CMSIS

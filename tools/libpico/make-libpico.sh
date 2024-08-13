@@ -8,15 +8,17 @@ export PATH="$(cd ../../system/arm-none-eabi/bin; pwd):$PATH"
 rm -rf build
 mkdir build
 cd build
-cmake .. -DPICO_PLATFORM=rp2350
+cmake .. -DPICO_PLATFORM=rp2350-arm-s -DPICO_BOARD=pico2 -DPICOTOOL_FORCE_FETCH_FROM_GIT=1
 make -j V=1
 
 # Put everything in its place
+echo "Moving stuff around."
 mv generated/pico_base/pico/version.h ../../../include/pico_base/pico/.
 cp ../lwipopts.h ../../../include/.
 cp ../tusb_config.h ../../../include/.
 cp ../btstack_config.h ../../../include/.
 
+echo "Building boot2 files"
 rm -rf boot
 mkdir boot
 cd boot
@@ -47,6 +49,7 @@ for type in boot2_generic_03h boot2_w25q080; do
                    -s 0xffffffff $type.$div.bin ${type}_${div}_padded_checksum.S
     done
 done
+echo "Moving files into place"
 mv *.S ../../../../boot2/cortex-m33/.
 
 # Build for RP2040
@@ -54,7 +57,7 @@ cd ../..
 rm -rf build
 mkdir build
 cd build
-cmake .. -DPICO_PLATFORM=rp2040
+cmake .. -DPICO_PLATFORM=rp2040 -DPICO_BOARD=pico_w -DPICOTOOL_FORCE_FETCH_FROM_GIT=1
 make -j V=1
 
 rm -rf boot
