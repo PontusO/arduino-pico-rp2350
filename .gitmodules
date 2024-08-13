@@ -1,9 +1,6 @@
 [submodule "ArduinoCore-API"]
 	path = ArduinoCore-API
 	url = https://github.com/earlephilhower/ArduinoCore-API.git
-[submodule "pico-sdk"]
-	path = pico-sdk
-	url = https://github.com/PontusO/pico-sdk-rp2350.git
 [submodule "system/pyserial"]
 	path = tools/pyserial
 	url = https://github.com/pyserial/pyserial.git

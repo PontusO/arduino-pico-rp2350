@@ -1,0 +1,12 @@
+# include everything needed to build against rp2350
+
+set(PICO_RP2040 "0" CACHE INTERNAL "")
+set(PICO_RP2350 "1" CACHE INTERNAL "")
+set(PICO_RISCV "0" CACHE INTERNAL "")
+set(PICO_ARM "1" CACHE INTERNAL "")
+set(RP2_VARIANT_LIST_DIR ${CMAKE_CURRENT_LIST_DIR}/rp2350)
+set(PICO_PIO_VERSION "1" CACHE INTERNAL "")
+set(PICO_CMSIS_DEVICE "RP2350" CACHE INTERNAL "")
+
+include(rp2_common.cmake)
+
